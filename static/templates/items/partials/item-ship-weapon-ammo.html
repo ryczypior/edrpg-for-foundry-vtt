@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>{{localize "SHIPSHEET.Ammo"}}</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-cmd-4 col-clg-4">
+            <span>{{localize 'SHIPSHEET.WeaponDamage'}}</span>
+        </div>
+        <div class="col-12 col-cmd-8 col-clg-8 mb-2">
+            <input type="number" name="system.damage.value" value="{{system.damage.value}}"><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-cmd-4 col-clg-4">
+            <span>{{localize 'SHIPSHEET.WeaponDamageBurst'}}</span>
+        </div>
+        <div class="col-12">
+            <label>
+                {{#select system.damage.burst}}
+                <select name="system.damage.hasBurst">
+                    <option value="0">{{localize 'SHIPSHEET.WeaponDamageBurstNo'}}</option>
+                    <option value="1">{{localize 'SHIPSHEET.WeaponDamageBurstYes'}}</option>
+                </select>
+                {{/select}}
+            </label>
+        </div>
+        <div class="col-12">
+            <label>
+                {{localize 'SHIPSHEET.WeaponDamageMaxBurst'}}:
+                <input type="number" name="system.damage.burstMax" value="{{system.damage.burstMax}}"><br>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-cmd-4 col-clg-4">
+            <span>{{localize 'SHIPSHEET.WeaponExtraDamageVsShields'}}</span>
+        </div>
+        <div class="col-12 col-cmd-8 col-clg-8 mb-2">
+            <input type="number" name="system.damage.extraDamageVsShields" value="{{system.damage.extraDamageVsShields}}"><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-cmd-4 col-clg-4">
+            <span>{{localize 'SHIPSHEET.WeaponExtraDamageVsNoShields'}}</span>
+        </div>
+        <div class="col-12 col-cmd-8 col-clg-8 mb-2">
+            <input type="number" name="system.damage.extraDamageVsNoShields" value="{{system.damage.extraDamageVsNoShields}}"><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-cmd-4 col-clg-4">
+            <span>{{localize 'SHIPSHEET.WeaponExtraDamageVsSmallShips'}}</span>
+        </div>
+        <div class="col-12 col-cmd-8 col-clg-8 mb-2">
+            <input type="number" name="system.damage.extraDamageVsSmallShips" value="{{system.damage.extraDamageVsSmallShips}}"><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-cmd-4 col-clg-4">
+            <span>{{localize 'SHIPSHEET.WeaponExtraDamageVsMediumShips'}}</span>
+        </div>
+        <div class="col-12 col-cmd-8 col-clg-8 mb-2">
+            <input type="number" name="system.damage.extraDamageVsMediumShips" value="{{system.damage.extraDamageVsMediumShips}}"><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-cmd-4 col-clg-4">
+            <span>{{localize 'SHIPSHEET.WeaponExtraDamageVsLargeShips'}}</span>
+        </div>
+        <div class="col-12 col-cmd-8 col-clg-8 mb-2">
+            <input type="number" name="system.damage.extraDamageVsLargeShips" value="{{system.damage.extraDamageVsLargeShips}}"><br>
+        </div>
+    </div>
+</div>

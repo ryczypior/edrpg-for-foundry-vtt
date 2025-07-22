@@ -40,3 +40,45 @@
 #compendium-world.edrpg-items{
   overflow-y: auto;
 }
+
+.ship-components{
+  .component {
+    padding: 1rem;
+    .image {
+      opacity: 75;
+    }
+    .component-inner{
+      position: relative;
+      box-sizing: border-box;
+      background: $sheet-tabs-gradient;
+      width: 100%;
+      height: 4rem;
+      overflow: hidden;
+      .stats {
+        clip-path: polygon(15% 0, 100% 0, 100% 0, 100% 100%, 0% 100%);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: 0.6rem;
+        background: $background-description-gradient;
+        color: $background-description-color;
+        padding: 0.2rem 0.5rem 0.2rem 1rem;
+        border: solid 1px $background-description-color;
+      }
+    }
+
+    &.empty {
+      .component-inner{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px dashed $placeholder-border-color;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.8em;
+        background: $placeholder-background-color;
+        color: $placeholder-text-color-light;
+      }
+    }
+  }
+}

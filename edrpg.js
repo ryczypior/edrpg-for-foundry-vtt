@@ -30,6 +30,7 @@ import ItemSheetEDRPGShipPowerDistributors from "./modules/item/sheet/ItemSheetE
 import ItemSheetEDRPGShipSensors from "./modules/item/sheet/ItemSheetEDRPGShipSensors";
 import ItemSheetEDRPGShipShields from "./modules/item/sheet/ItemSheetEDRPGShipShields";
 import ItemSheetEDRPGShipWeapons from "./modules/item/sheet/ItemSheetEDRPGShipWeapons";
+import ItemSheetEDRPGShipWeaponsAmmo from "./modules/item/sheet/ItemSheetEDRPGShipWeaponsAmmo";
 import ItemSheetEDRPGShipUtilityMounts from "./modules/item/sheet/ItemSheetEDRPGShipUtilityMounts";
 import ItemSheetEDRPGShipInternalAFMUnits from "./modules/item/sheet/ItemSheetEDRPGShipInternalAFMUnits";
 import ItemSheetEDRPGShipInternalCargoRacks from "./modules/item/sheet/ItemSheetEDRPGShipInternalCargoRacks";
@@ -90,6 +91,7 @@ Hooks.once("init", async function () {
   Items.registerSheet('edrpg', ItemSheetEDRPGShipSensors, {types: ['Ship Sensors'], makeDefault: true});
   Items.registerSheet('edrpg', ItemSheetEDRPGShipShields, {types: ['Ship Shields'], makeDefault: true});
   Items.registerSheet('edrpg', ItemSheetEDRPGShipWeapons, {types: ['Ship Weapons'], makeDefault: true});
+  Items.registerSheet('edrpg', ItemSheetEDRPGShipWeaponsAmmo, {types: ['Ship Weapons Ammo'], makeDefault: true});
   Items.registerSheet('edrpg', ItemSheetEDRPGShipCargoHatch, {types: ['Ship Cargo Hatch'], makeDefault: true});
   Items.registerSheet('edrpg', ItemSheetEDRPGShipUtilityMounts, {types: ['Ship Utility Mounts'], makeDefault: true});
 
@@ -141,6 +143,7 @@ Hooks.once("init", async function () {
       ItemSheetEDRPGShipShields,
       ItemSheetEDRPGShipCargoHatch,
       ItemSheetEDRPGShipWeapons,
+      ItemSheetEDRPGShipWeaponsAmmo,
       ItemSheetEDRPGShipUtilityMounts,
       ItemSheetEDRPGShipInternalAFMUnits,
       ItemSheetEDRPGShipInternalCargoRacks,

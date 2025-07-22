@@ -29,6 +29,8 @@ $description-border: #a9b6c5;
 
 $placeholder-border-color: #777777;
 $placeholder-background-color: #dddddd;
+$placeholder-text-color: #777777;
+$placeholder-text-color-light: #999999 !important;
 
 $chat-background: #ffffff;
 $chat-color: #012533;
@@ -45,6 +47,7 @@ $chat-button-background: $karma-input-gradient;
 
 
 @import 'bootstrap/bootstrap-grid';
+@import 'custom/bootstrap-container-grid';
 @import "custom/1-fonts";
 @import "custom/2-windows";
 @import "custom/3-sheet";

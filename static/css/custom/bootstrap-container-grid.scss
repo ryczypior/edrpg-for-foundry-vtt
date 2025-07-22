@@ -1,0 +1,54 @@
+// Container breakpoints (analogiczne do Bootstrapa, ale dla container queries)
+$container-breakpoints: (
+        csm: 576px,
+        cmd: 768px,
+        clg: 992px,
+        cxl: 1200px
+);
+
+// Generate container grid
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+[class*="col-"] {
+  position: relative;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+// Generate container queries columns
+@each $name, $min-width in $container-breakpoints {
+  @container (min-width: #{$min-width}) {
+    @for $i from 1 through 12 {
+      .col-#{$name}-#{$i} {
+        flex: 0 0 auto;
+        width: calc(100% * $i / 12);
+      }
+    }
+
+    // Auto width
+    .col-#{$name}-auto {
+      flex: 0 0 auto;
+      width: auto;
+    }
+
+    // Offsets
+    @for $i from 1 through 11 {
+      .offset-#{$name}-#{$i} {
+        margin-left: calc(100%*$i / 12);
+      }
+    }
+  }
+}
+
+.container {
+  container-type: inline-size;
+}
+
+.container-fluid {
+  container-type: inline-size;
+}

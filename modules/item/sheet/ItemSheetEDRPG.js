@@ -20,6 +20,8 @@ export default class ItemSheetEDRPG extends ItemSheet {
     sheetData.meleeHands = duplicate(EDRPG.meleeHands);
     sheetData.shipComponentClasses = EDRPG.shipComponentClasses;
     sheetData.shipComponentTypes = EDRPG.shipComponentTypes;
+    sheetData.shipWeaponsSizes = EDRPG.shipWeaponsSizes;
+    sheetData.shipWeaponsMountTypes = EDRPG.shipWeaponsMountTypes;
     sheetData.skills = duplicate(EDRPG.skillsCategories);
     const skills = await EDRPGUtils.findItemsByType('Skills');
     if(skills){

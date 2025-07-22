@@ -111,17 +111,21 @@ export default class ActorSheetEDRPGShip extends ActorSheetEDRPG {
     sheetData.pilotSpaceshipPiloting = 0;
     sheetData.shipComponentClasses = EDRPG.shipComponentClasses;
     sheetData.shipComponentTypes = EDRPG.shipComponentTypes;
+    sheetData.shipWeaponsSizes = EDRPG.shipWeaponsSizes;
     sheetData.shipCategories = EDRPG.shipTypes;
     sheetData.landingPadSizes = EDRPG.landingPadSizeses;
     if (sheetData.pilot) {
       sheetData.pilotDodge = sheetData.pilot.system.info.dodge.value;
       sheetData.pilotInitiative = sheetData.pilot.system.info.initiative.value;
-      const spaceshipPiloting = this.actor.findSkillByInternalId('Spaceship Piloting', sheetData.pilot.actor);
+      const spaceshipPiloting = this.actor.findSkillByInternalId('Spaceship Piloting', sheetData.pilot);
       if (spaceshipPiloting) {
         sheetData.pilotSpaceshipPiloting = spaceshipPiloting.system.skill.skillBonus.value;
       }
     }
     sheetData.fixedComponents = await this.getFixedComponents();
+    sheetData.internalComponents = await this.actor.system.shipInternalComponents;
+    sheetData.utilityMounts = await this.actor.system.shipUtilityMounts;
+    sheetData.weapons = await this.actor.system.shipWeapons;
     sheetData.shipType = EDRPG.shipTypes;
     sheetData.landingPadSize = EDRPG.landingPadSizeses;
     sheetData.landingPadSize = EDRPG.landingPadSizeses;
@@ -158,13 +162,15 @@ export default class ActorSheetEDRPGShip extends ActorSheetEDRPG {
         'system.shipInfo.dogfight.value': 0,
       };
       if (this.actor.system.pilot) {
-        const spaceshipPiloting = this.actor.findSkillByInternalId('Spaceship Piloting', this.actor.system.pilot.actor);
+        const spaceshipPiloting = this.actor.findSkillByInternalId('Spaceship Piloting', this.actor.system.pilot);
         if(spaceshipPiloting) {
           data['system.shipInfo.defence.value'] += Number(spaceshipPiloting.system.skill.skillBonus.value);
+          data['system.shipInfo.pursuit.value'] += Math.floor(Number(spaceshipPiloting.system.skill.skillBonus.value) / 2);
         }
         data['system.shipInfo.initiative.value'] += Number(this.actor.system.pilot.system.info.initiative.value);
       }
       data['system.shipInfo.defence.value'] += Number(this.actor.system.shipInfo.agility.value);
+      data['system.shipInfo.pursuit.value'] += Number(this.actor.system.shipInfo.speed.value);
       await this.actor.update(data);
     }
     return true;
@@ -215,12 +221,33 @@ export default class ActorSheetEDRPGShip extends ActorSheetEDRPG {
     return await this.recalculateFormulas();
   }
 
-  async _changeFixedComponentSize(event) {
-    const item = event.currentTarget.attributes['data-idx'].value;
-    const value = event.currentTarget.value;
-    await this.actor.update({
-      [`system.shipFixedComponents.${item}.size`]: value
-    });
+  async _changeComponentCount(event) {
+    const componentTypes = ['shipWeapons', 'shipUtilityMounts', 'shipInternalComponents'];
+    const componentType = event.target.getAttribute('data-componentName');
+    console.log(componentType);
+    if (componentTypes.indexOf(componentType) === -1) {
+      return null;
+    }
+    let components = duplicate(this.actor.system[componentType]);
+    let componentsCount = components.length;
+    let newCount = Number(event.target.value);
+    if(newCount >= 0){
+      if(newCount > componentsCount){
+        for (let i = componentsCount; i < newCount; i++) {
+          components.push({
+            size: 1,
+            strength: 0,
+            power: 0,
+            item: null,
+          });
+        }
+      } else {
+        components = components.slice(0, newCount);
+      }
+      let updateValue = {};
+      updateValue[`system.${componentType}`] = components;
+      await this.actor.update(updateValue);
+    }
     return await this.recalculateFormulas();
   }
 
@@ -228,7 +255,9 @@ export default class ActorSheetEDRPGShip extends ActorSheetEDRPG {
     super.activateListeners(html);
     html.find('.skill-roll').click(this._onSkillClick.bind(this));
     html.find('.remove-pilot').click(this._onRemovePilot.bind(this));
-    html.find('.changeFixedComponentSize').change(this._changeFixedComponentSize.bind(this));
-    html.find('.recalculateFormula').change(this.recalculateFormulas.bind(this));
+    html.find('.changeComponentCount').change(this._changeComponentCount.bind(this));
+    html.find('.recalculateFormula').change(debounce(async (event) => {
+      await this.recalculateFormulas(event);
+    }, 200));
   }
 }

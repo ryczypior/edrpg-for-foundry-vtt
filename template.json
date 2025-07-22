@@ -200,24 +200,16 @@
         }
       },
       "shipInternalComponents": {
-        "shipInternalComponents": {
-          "component": []
-        }
+        "shipInternalComponents": []
       },
       "shipWeapons": {
-        "shipWeapons": {
-          "weapon": []
-        }
+        "shipWeapons": []
       },
       "shipUtilityMounts": {
-        "shipUtilityMounts": {
-          "mount": []
-        }
+        "shipUtilityMounts": []
       },
       "crew": {
-        "crew": {
-          "actor": []
-        }
+        "crew": []
       },
       "status": {
         "status": {
@@ -389,6 +381,7 @@
       "Ship Sensors",
       "Ship Shields",
       "Ship Weapons",
+      "Ship Weapons Ammo",
       "Ship Utility Mounts",
       "Ship Internal - AFM Units",
       "Ship Internal - Cargo Racks",
@@ -773,6 +766,45 @@
           }
         }
       },
+      "shipWeapon": {
+        "shipWeapon": {
+          "accuracy": {
+            "type": 0,
+            "value": 0
+          },
+          "ammo": {
+            "ammoType": 0,
+            "current": 0,
+            "max": 0,
+            "reloadCost": 0,
+            "unitCost": 0
+          },
+          "weaponMountType": {
+            "value": 1
+          },
+          "size": {
+            "value": 1
+          },
+          "damage": {
+            "value": 0,
+            "hasBurst": 0,
+            "burstMax": 0,
+            "extraDamageVsShields": 0,
+            "extraDamageVsNoShields": 0,
+            "extraDamageVsSmallShips": 0,
+            "extraDamageVsMediumShips": 0,
+            "extraDamageVsLargeShips": 0
+          }
+        }
+      },
+      "shipWeaponsAmmo": {
+        "shipWeaponsAmmo": {
+          "unitCost": {
+            "value": 0
+          },
+          "itemsInCell": 1
+        }
+      },
       "skill": {
         "skill": {
           "skillCategory": {
@@ -988,6 +1020,14 @@
       "templates": [
         "internalId",
         "cost",
+        "details"
+      ]
+    },
+    "Ship Weapons Ammo": {
+      "templates": [
+        "internalId",
+        "cost",
+        "shipWeaponsAmmo",
         "details"
       ]
     },

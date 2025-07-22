@@ -1,0 +1,58 @@
+<h2>
+  {{localize "SHIPSHEET.Weapons"}}
+</h2>
+<div class="row tableheading">
+  <div class="col-7">
+    {{localize "SHIPSHEET.ComponentName"}}
+  </div>
+  <div class="col-1">
+    {{localize "SHIPSHEET.ComponentSize"}}
+  </div>
+  <div class="col-1">
+    {{localize "SHIPSHEET.ComponentStrength"}}
+  </div>
+  <div class="col-1">
+    {{localize "SHIPSHEET.ComponentPower"}}
+  </div>
+  <div class="col-1">
+    {{localize "SHIPSHEET.ComponentSizeModel"}}
+  </div>
+  <div class="col-1">
+    {{localize "SHIPSHEET.ComponentActions"}}
+  </div>
+</div>
+
+<div class="ship-components row">
+  {{#each weapons as |item i|}}
+    <div class="col col-12 col-cmd-6 col-clg-4 col-cxl-3 component shipWeapons
+        {{#if item.item}}
+        {{else}}
+        empty
+        {{/if}}
+      " data-componentName="shipWeapons" data-idx="{{i}}">
+      <div class="component-inner">
+        {{#if item.item}}
+          {{item.item.name}}
+        {{else}}
+          {{localize "SHIPSHEET.Empty"}}
+        {{/if}}
+        <div class="stats">
+          {{#if item.item}}
+          PWR: {{item.item.system.powerConsumed.value}};
+          STR: {{item.item.system.strength.value}};
+          SIZE: {{item.size}};
+          {{else}}
+          PWR: ---;
+          STR: ---;
+          SIZE: {{item.size}};
+          {{/if}}
+          {{#if item.item}}
+          <span class="clickRemoveItem" data-id="{{item._id}}">
+            <i class="fas fa-trash"></i>
+          </span>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>

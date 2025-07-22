@@ -1,0 +1,21 @@
+<form class="{{cssClass}}" autocomplete="off">
+    {{> systems/edrpg/templates/items/partials/item-all-header.html}}
+    <!-- TABS -->
+    <section class="tab-sections">
+        <nav class="sheet-tabs tabs" ondragstart="return false;" ondrop="return false;">
+            <a class="item active" data-tab="main">{{localize "ITEM.Description"}}</a>
+        </nav>
+        <section class="content">
+            <div class="tab main save-scroll" data-tab="main">
+                {{> systems/edrpg/templates/items/partials/item-all-cost.html}}
+                {{> systems/edrpg/templates/items/partials/item-ship-weapon-size.html}}
+                {{> systems/edrpg/templates/items/partials/item-ship-weapon-mount-type.html}}
+                {{> systems/edrpg/templates/items/partials/item-ship-power-consumed.html}}
+                {{> systems/edrpg/templates/items/partials/item-ship-strength.html}}
+                {{> systems/edrpg/templates/items/partials/item-ship-weapon-accuracy.html}}
+                {{> systems/edrpg/templates/items/partials/item-ship-weapon-damage.html}}
+                {{> systems/edrpg/templates/items/partials/item-all-description.html}}
+            </div>
+        </section>
+    </section>
+</form>

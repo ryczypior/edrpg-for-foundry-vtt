@@ -1,0 +1,74 @@
+<h2>
+  {{localize "SHIPSHEET.UtilityMounts"}}
+</h2>
+<div class="row tableheading">
+  <div class="col-7">
+    {{localize "SHIPSHEET.ComponentName"}}
+  </div>
+  <div class="col-1">
+    {{localize "SHIPSHEET.ComponentSize"}}
+  </div>
+  <div class="col-1">
+    {{localize "SHIPSHEET.ComponentStrength"}}
+  </div>
+  <div class="col-1">
+    {{localize "SHIPSHEET.ComponentPower"}}
+  </div>
+  <div class="col-1">
+    {{localize "SHIPSHEET.ComponentSizeModel"}}
+  </div>
+  <div class="col-1">
+    {{localize "SHIPSHEET.ComponentActions"}}
+  </div>
+</div>
+<div class="ship-components-utils">
+  {{#each utilityMounts as |item i|}}
+  <div class="row tablerow">
+    <div class="col-7 tableheader text-left onChangeActiveDescription">
+      {{#if item.item}}
+      {{item.item.name}}
+      {{else}}
+      {{localize "SHIPSHEET.None"}}
+      {{/if}}
+    </div>
+    <div class="col-1 tableinput">
+      <select class="changeUtilityMountSize" data-idx="{{i}}" >
+        {{#each ../shipComponentClasses as |element x|}}
+        <option value="{{element}}"
+                {{#if (eq element item.size)}}
+                selected="selected"
+                {{/if}}
+        >{{element}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="col-1 tableinput">
+      <span>{{item.item.system.strength.value}}</span>
+    </div>
+    <div class="col-1 tableinput">
+      {{#if item.item.system.powerGenerated.value}}
+      <span>
+                {{item.item.system.powerGenerated.value}}
+            </span>
+      {{else}}
+      <span>
+                -{{item.item.system.powerConsumed.value}}
+            </span>
+      {{/if}}
+    </div>
+    <div class="col-1 tableinput">
+      <input type="text">
+    </div>
+    <div class="col-1 tableinput">
+            <span class="clickRemoveItem" data-id="{{item._id}}">
+                <i class="fas fa-trash"></i>
+            </span>
+    </div>
+    <div class="col-12 tabledescripion">
+      <div>
+        {{{item.item.system.details.description.value}}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>

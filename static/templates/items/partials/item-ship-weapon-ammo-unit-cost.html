@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>{{localize "ITEM.UnitCost"}}</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4">
+      <span>{{localize 'ITEM.UnitCost'}} ({{localize 'TIER.CreditsAbbrev'}})</span>
+    </div>
+    <div class="col-12 col-md-6 col-lg-8">
+      <input type="number" value="{{system.unitCost.value}}" name="system.unitCost.value" data-type="currency" inputmode="numeric"
+             placeholder="{{localize 'ITEM.Cost'}}" title="{{localize 'ITEM.Cost'}}">
+    </div>
+  </div>
+</div>

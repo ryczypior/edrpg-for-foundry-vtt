@@ -133,19 +133,19 @@
     <div class="row">
         <div class="col-6 col-lg-3">
             <label>
-                <input type="number" name="system.shipInfo.weaponsSlotNumper.value" min="1" step="1" value="{{system.shipInfo.weaponsSlotNumper.value}}" class="recalculateFormula">
+                <input type="number" class="changeComponentCount" data-componentName="shipWeapons" name="system.shipInfo.weaponsSlotNumper.value" min="1" step="1" value="{{system.shipInfo.weaponsSlotNumper.value}}" class="recalculateFormula">
                 <span>{{localize 'SHIPSHEET.WeaponsMountNo'}}</span>
             </label>
         </div>
         <div class="col-6 col-lg-3">
             <label>
-                <input type="number" name="system.shipInfo.utilitySlotNumper.value" min="1" step="1" value="{{system.shipInfo.utilitySlotNumper.value}}" class="recalculateFormula">
+                <input type="number" class="changeComponentCount" data-componentName="shipUtilityMounts" name="system.shipInfo.utilitySlotNumper.value" min="1" step="1" value="{{system.shipInfo.utilitySlotNumper.value}}" class="recalculateFormula">
                 <span>{{localize 'SHIPSHEET.UtlityMountNo'}}</span>
             </label>
         </div>
         <div class="col-6 col-lg-3">
             <label>
-                <input type="number" name="system.shipInfo.internalSlotNumper.value" min="1" step="1" value="{{system.shipInfo.internalSlotNumper.value}}" class="recalculateFormula">
+                <input type="number" class="changeComponentCount" data-componentName="shipInternalComponents" name="system.shipInfo.internalSlotNumper.value" min="1" step="1" value="{{system.shipInfo.internalSlotNumper.value}}" class="recalculateFormula">
                 <span>{{localize 'SHIPSHEET.InternalMountNo'}}</span>
             </label>
         </div>

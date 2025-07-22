@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>{{localize "SHIPSHEET.WeaponAccuracy"}}</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-cmd-4 col-clg-4">
+      <span>{{localize 'SHIPSHEET.WeaponAccuracy'}}</span>
+    </div>
+    <div class="col-12 col-cmd-4 col-clg-4">
+      {{#select system.accuracy.type}}
+      <select name="system.accuracy.type">
+        <option value="0">{{localize 'SHIPSHEET.WeaponAccuracyTypeFixed'}}</option>
+        <option value="1">{{localize 'SHIPSHEET.WeaponAccuracyTypeDiff'}}</option>
+      </select>
+      {{/select}}
+    </div>
+    <div class="col-12 col-cmd-4 col-clg-4 mb-2">
+      <input type="number" name="system.accuracy.value" value="{{system.accuracy.value}}">
+    </div>
+  </div>
+</div>

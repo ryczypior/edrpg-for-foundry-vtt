@@ -24,7 +24,7 @@ export default {
         }),
         scss({
             output: `./static/css/edrpg.css`,
-            failOnError: false,
+            failOnError: true,
             runtime: require("sass"),
             quietDeps: false,
         }),

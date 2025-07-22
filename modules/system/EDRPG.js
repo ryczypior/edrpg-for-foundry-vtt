@@ -776,20 +776,32 @@ EDRPG.landingPadSizeses = {
   }
 }
 
-EDRPG.shipWeaponsTypes = {
-  small: {
-    name: "SHIPSHEET.WeaponTypeSmall",
+EDRPG.shipWeaponsSizes = {
+  1: {
+    name: "SHIPSHEET.WeaponSizeSmall",
   },
-  medium: {
-    name: "SHIPSHEET.WeaponTypeMedium",
+  2: {
+    name: "SHIPSHEET.WeaponSizeMedium",
   },
-  large: {
-    name: "SHIPSHEET.WeaponTypeLarge",
+  3: {
+    name: "SHIPSHEET.WeaponSizeLarge",
   },
-  huge: {
-    name: "SHIPSHEET.WeaponTypeHuge",
+  4: {
+    name: "SHIPSHEET.WeaponSizeHuge",
   }
-}
+};
+
+EDRPG.shipWeaponsMountTypes = {
+  1: {
+    name: "SHIPSHEET.WeaponTypeFixed",
+  },
+  2: {
+    name: "SHIPSHEET.WeaponTypeGimballed",
+  },
+  3: {
+    name: "SHIPSHEET.WeaponTypeTurreted",
+  }
+};
 
 EDRPG.sizes = {
   small: 1,
