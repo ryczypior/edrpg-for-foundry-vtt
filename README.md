@@ -5,9 +5,16 @@ This is an **unofficial** implementation of the Elite Dangerous Role-Playing Gam
 ---
 
 ## Prerequisites
-- **Node.js:** 16.16 or newer
-- **Ruby Sass:** 3.7.4 (or any compatible SCSS compiler)
-- **Foundry VTT:** v10 or v11
+- **Node.js:** 18 LTS or newer (developed and tested on **20.19**).
+- **SCSS:** compiled via **Dart Sass** (the `sass` npm package), installed automatically by `npm install` — no separate compiler needed.
+- **Foundry VTT:** **v12–v13** (minimum 12, verified on 13). See `system.json` → `compatibility`.
+
+---
+
+## Tech stack
+- **JavaScript** ES modules bundled with **Rollup** into a single classic script (`build/edrpg.js`).
+- **SCSS** (Bootstrap 5 grid + custom partials) → `build/css/edrpg.css`.
+- **Handlebars** templates; **ApplicationV2** actor and item sheets (Foundry v13 API).
 
 ---
 
@@ -16,8 +23,10 @@ This is an **unofficial** implementation of the Elite Dangerous Role-Playing Gam
 1. Run `npm install`.
 2. Create a `foundryconfig.json` file in the project root and copy the contents of `foundryconfig-example.json` into it.
 3. Edit the `path` in `foundryconfig.json` so it points to your Foundry VTT **data** folder.
-4. Start the development server with `npm start`.  
+4. Start the development server with `npm start` (watch mode).  
    Build a production release with `npm run build`.
+
+> **Note:** Foundry loads the **bundled** output, not the source files — always run a build (or keep `npm start` watching) after editing `modules/` or `static/`.
 
 ---
 

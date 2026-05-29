@@ -3,7 +3,7 @@
     "name": "edrpg",
     "title": "E.D.R.P.G. - Unofficial (Evolution expansion ready)",
     "description": "TAKE CONTROL OF YOUR OWN SPACESHIP AND FORGE YOUR OWN DESTINY IN A CUT-THROAT GALAXY USING FOUNDRY VTT",
-    "version": "0.1.23",
+    "version": "0.2.0",
     "authors" : [
         {
             "name": "Ryczypior",
@@ -57,5 +57,5 @@
     "socket": true,
     "manifest" :  "https://gitlab.com/ryczypior/elite-dangerous-rpg-foundry-vtt/releases/latest/download/system.json",
     "download" :  "https://gitlab.com/ryczypior/elite-dangerous-rpg-foundry-vtt/releases/download/1.0.0/edrpg.zip",
-    "url" : "https://gitlab.com/ryczypior/elite-dangerous-rpg-foundry-vtt"
+    "url" : "https://github.com/ryczypior/edrpg-for-foundry-vtt"
 }
