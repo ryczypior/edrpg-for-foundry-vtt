@@ -46,18 +46,17 @@ export default class EDRPGUtils {
     let items = {};
     game.items.forEach(item => {
       if(item.type && item.type === type){
-        items[item.system.internalId.value] = duplicate(item);
+        items[item.system.internalId.value] = foundry.utils.duplicate(item);
       }
     });
     /** search in compendium */
     const packs = Array.from(game.packs.keys());
     for(let x = 0; x < packs.length; x++){
-      console.log(packs[x]);
       if(/edrpg/.test(packs[x])){
         let packItems = await game.packs.get(packs[x]).getDocuments();
         packItems.forEach(item => {
           if(item.type === type){
-            items[item.system.internalId.value] = duplicate(item);
+            items[item.system.internalId.value] = foundry.utils.duplicate(item);
           }
         });
       }

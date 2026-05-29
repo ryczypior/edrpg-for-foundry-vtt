@@ -1,16 +1,10 @@
-.chat-message{
+// `.chatMessage` is the system's own wrapper (see templates/chat/*.html).
+// Earlier this targeted `.chat-message` + core `.message-header`/`.message-content`,
+// which restyled EVERY message in the Foundry v13 chat log, not just ours.
+.chatMessage{
   background: $chat-background;
   color: $chat-color;
   padding: 0;
-  .message-header{
-    background: $chat-heading-background;
-    color: $chat-heading-color;
-    padding: 3px 5px;
-    font-weight: bold;
-  }
-  .message-content{
-    padding: 3px 5px;
-  }
   .testResult{
     .success{
       color: $chat-test-success-color;

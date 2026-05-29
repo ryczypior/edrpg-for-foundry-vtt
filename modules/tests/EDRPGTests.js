@@ -1,4 +1,5 @@
 import EDRPGUtils from "../system/EDRPGUtils";
+import { renderTemplateCompat as renderTemplate } from "../system/compat.js";
 
 export default class EDRPGTests {
   constructor(data, actor) {

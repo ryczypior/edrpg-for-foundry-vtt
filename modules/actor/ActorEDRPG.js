@@ -52,12 +52,11 @@ export default class ActorEDRPG extends Actor {
       updateAttributes['system.info.dodge.value'] = dodge.system.skill.skillBonus.value;
     }
     if (parry) {
-      updateAttributes['system.info.initiative.value'] = parry.system.skill.skillBonus.value;
+      updateAttributes['system.info.parry.value'] = parry.system.skill.skillBonus.value;
     }
     if (initiative) {
-      updateAttributes['system.info.parry.value'] = initiative.system.skill.skillBonus.value;
+      updateAttributes['system.info.initiative.value'] = initiative.system.skill.skillBonus.value;
     }
-    console.log(updateAttributes);
     return await this.update(updateAttributes);
   }
 
@@ -87,7 +86,6 @@ export default class ActorEDRPG extends Actor {
     await this.updateMainAttributes()
     for (let actor of game.actors) {
       if(actor.system.pilot && actor.system.pilot._id === this._id){
-        console.log(actor);
         await actor.update({
           'system.pilot': this
         });
@@ -98,7 +96,6 @@ export default class ActorEDRPG extends Actor {
 
   async addSkillValue(skillsToChange) {
     for (const element of skillsToChange) {
-      console.log(element);
       const item = this.findSkillByInternalId(element.skillId);
       if (item && item.system) {
         let maxCap = Number(item.system.skill.skillGenius.value) + Number(this._source.system.status.rank.value.skillCap);
@@ -139,10 +136,6 @@ export default class ActorEDRPG extends Actor {
     return true;
   }
 
-  async findItem() {
-
-  }
-
   async removeBackgrounds(item) {
     const effects = item.system.backgrounds.effects;
     const skills = [];
@@ -161,7 +154,7 @@ export default class ActorEDRPG extends Actor {
   }
 
   async calculateSocialFactor() {
-    const socialFactor = duplicate(this._source.system.socialFactor);
+    const socialFactor = foundry.utils.duplicate(this._source.system.socialFactor);
     const cap = parseInt(game.settings.get("edrpg", 'socialFactorCap'), 10);
     socialFactor.sfWornItems.value = 0;
     this.items.forEach(item => {
@@ -176,12 +169,12 @@ export default class ActorEDRPG extends Actor {
   }
 
   async _preCreate(data, options, user) {
-    await super._onCreate(data, options, user);
+    await super._preCreate(data, options, user);
     let items = this.items.map((i) => i.toObject())
     if (['Character', 'NPC'].indexOf(this.type) !== -1) {
       const skills = await EDRPGUtils.findItemsByType('Skills');
       for (let idx in skills) {
-        let object = duplicate(skills[idx]);
+        let object = foundry.utils.duplicate(skills[idx]);
         items.push(object);
       }
       await this.updateSource({items});
@@ -192,10 +185,6 @@ export default class ActorEDRPG extends Actor {
   }
 
   async _onCreateShipData(data, options, user){
-    const fixedComponents = ['bulkhead', 'powerPlant', 'thrusters', 'fsd', 'lifeSupport', 'powerDistributor', 'sensors', 'cargoHatch'];
-    for (let component of fixedComponents) {
-      
-    }
   }
 
   async _onCreateCharacterData(data, options, user){
@@ -239,10 +228,6 @@ export default class ActorEDRPG extends Actor {
     }
   }
 
-
-  findItemByInternalID(internalId, type = null) {
-
-  }
 
   prepareBaseData() {
     super.prepareBaseData();

@@ -1,12 +1,5 @@
-import ItemSheetEDRPG from "./ItemSheetEDRPG.js";
+import ItemSheetEDRPGV2 from "./v2/ItemSheetEDRPGV2.js";
 
-export default class ItemSheetEDRPGShipPowerPlants extends ItemSheetEDRPG {
-  get template() {
-    return "systems/edrpg/templates/items/ship-power-plant.html";
-  }
-
-
-  activateListeners(html) {
-    super.activateListeners(html);
-  }
+export default class ItemSheetEDRPGShipPowerPlants extends ItemSheetEDRPGV2 {
+  static BODY_TEMPLATE = "systems/edrpg/templates/items/v2/ship-power-plant.html";
 }

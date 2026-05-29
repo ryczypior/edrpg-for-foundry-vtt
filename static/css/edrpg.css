@@ -4570,7 +4570,8 @@
   src: url("../fonts/SairaSemiCondensed-Black.ttf");
   font-weight: 900;
 }
-.tab {
+.edrpgsheet .tab,
+.edrpgitemsheet .tab {
   display: none;
 }
 
@@ -4778,6 +4779,55 @@
   text-shadow: none;
 }
 
+.application.edrpg-v2 {
+  font-family: "Saira Semi Condensed", sans-serif;
+  color: #012533;
+  --color-text-primary: #012533;
+  --color-text-secondary: #012533;
+  --color-form-label: #012533;
+  --color-form-label-hover: #012533;
+  --color-form-hint: #012533;
+}
+.application.edrpg-v2 h1, .application.edrpg-v2 h2, .application.edrpg-v2 h3, .application.edrpg-v2 h4 {
+  font-family: inherit;
+  color: #012533;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.3;
+  margin: 0.5em 0;
+  padding-bottom: 2px;
+  border: none;
+  border-bottom: 1px solid #782e22;
+  text-shadow: none;
+}
+.application.edrpg-v2 input, .application.edrpg-v2 textarea, .application.edrpg-v2 select, .application.edrpg-v2 button, .application.edrpg-v2 prose-mirror, .application.edrpg-v2 .editor-content {
+  font-family: inherit;
+  color: #012533;
+}
+.application.edrpg-v2 input, .application.edrpg-v2 textarea, .application.edrpg-v2 select {
+  background: linear-gradient(90deg, rgb(187, 199, 221) 0%, rgb(255, 255, 255) 100%);
+  border: solid 1px #012533;
+  border-radius: 0;
+}
+.application.edrpg-v2 input::placeholder, .application.edrpg-v2 textarea::placeholder {
+  color: #777777;
+  opacity: 1;
+}
+.application.edrpg-v2 .editor-menu, .application.edrpg-v2 prose-mirror menu {
+  background: #e0e0e0;
+  color: #012533;
+}
+.application.edrpg-v2 .editor-menu button, .application.edrpg-v2 .editor-menu a, .application.edrpg-v2 .editor-menu i, .application.edrpg-v2 .editor-menu select, .application.edrpg-v2 .editor-menu label, .application.edrpg-v2 prose-mirror menu button, .application.edrpg-v2 prose-mirror menu a, .application.edrpg-v2 prose-mirror menu i, .application.edrpg-v2 prose-mirror menu select, .application.edrpg-v2 prose-mirror menu label {
+  color: #012533;
+}
+.application.edrpg-v2 .window-content {
+  background: #ffffff;
+  color: #012533;
+}
+.application.edrpg-v2 .tab.active {
+  display: block;
+}
+
 .difficultyNumbers {
   display: flex;
   max-width: 100%;
@@ -4858,52 +4908,43 @@
   background: #ffffff;
 }
 
-.chat-message {
+.chatMessage {
   background: #ffffff;
   color: #012533;
   padding: 0;
 }
-.chat-message .message-header {
-  background: #78a0d1;
-  color: #ffffff;
-  padding: 3px 5px;
-  font-weight: bold;
-}
-.chat-message .message-content {
-  padding: 3px 5px;
-}
-.chat-message .testResult .success {
+.chatMessage .testResult .success {
   color: #33d633;
 }
-.chat-message .testResult .failure {
+.chatMessage .testResult .failure {
   color: #d63333;
 }
-.chat-message .actor {
+.chatMessage .actor {
   display: flex;
   margin: 5px 0;
   gap: 10px;
   padding: 0 0 5px 0;
   border-bottom: dashed 1px #78a0d1;
 }
-.chat-message .actor .image {
+.chatMessage .actor .image {
   width: 15%;
   max-width: 50px;
   background: no-repeat center center/contain #78a0d1;
 }
-.chat-message .actor .image:before {
+.chatMessage .actor .image:before {
   content: " ";
   padding-top: 100%;
   display: block;
 }
-.chat-message .actor .name {
+.chatMessage .actor .name {
   font-size: 1.2em;
   font-weight: bold;
 }
-.chat-message .buttons {
+.chatMessage .buttons {
   margin: 5px 0;
   text-align: right;
 }
-.chat-message .buttons a {
+.chatMessage .buttons a {
   display: inline-block;
   padding: 3px 10px;
   border-radius: 10px;
@@ -4913,10 +4954,10 @@
   background: linear-gradient(90deg, rgb(197, 191, 220) 0%, rgb(255, 255, 255) 100%);
 }
 
-.pilot {
+.edrpgsheet .pilot {
   width: 100%;
 }
-.pilot .pilot-placeholder {
+.edrpgsheet .pilot .pilot-placeholder {
   border: 3px dashed #777777;
   background: #dddddd;
   display: flex;
@@ -4925,10 +4966,10 @@
   align-items: center;
   justify-content: center;
 }
-.pilot .pilot-placeholder .image {
+.edrpgsheet .pilot .pilot-placeholder .image {
   opacity: 75;
 }
-.pilot .pilot-entry {
+.edrpgsheet .pilot .pilot-entry {
   background: linear-gradient(90deg, rgb(197, 191, 220) 0%, rgb(255, 255, 255) 100%);
   border: solid 1px #012533;
   padding: 1rem;
@@ -4937,18 +4978,18 @@
   align-items: center;
   justify-content: flex-start;
 }
-.pilot .image {
+.edrpgsheet .pilot .image {
   border-radius: 50%;
   flex-grow: 2;
   width: 60px;
   height: 60px;
 }
-.pilot .name {
+.edrpgsheet .pilot .name {
   padding: 0 1rem;
   flex-grow: 2;
   width: 100%;
 }
-.pilot .actions {
+.edrpgsheet .pilot .actions {
   width: 60px;
 }
 
@@ -4993,7 +5034,9 @@
   color: #999999 !important;
 }
 
-i {
+.edrpgsheet i,
+.edrpgitemsheet i,
+.chatMessage i {
   pointer-events: none;
 }
 
@@ -5002,7 +5045,8 @@ i {
   overflow-x: hidden;
 }
 
-.editor-content ul {
+.edrpgsheet .editor-content ul,
+.edrpgitemsheet .editor-content ul {
   margin: 0px 0px;
 }
 

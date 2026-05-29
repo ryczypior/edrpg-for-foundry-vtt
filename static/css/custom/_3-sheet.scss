@@ -195,3 +195,74 @@
     }
   }
 }
+
+// Foundry v13 ApplicationV2 sets its own theme font (var(--font-primary), Signika)
+// and theme text colors on `.application`, overriding the body font and dark-text
+// assumption the V1 sheets relied on by inheritance. Re-assert the system look on
+// ApplicationV2 sheets. Keyed on the `.edrpg-v2` marker class so V1 sheets are
+// untouched; remove this once all sheets are V2 and fold it into the block above.
+.application.edrpg-v2 {
+  font-family: "Saira Semi Condensed", sans-serif;
+  color: $default-color;
+  --color-text-primary: #{$default-color};
+  --color-text-secondary: #{$default-color};
+  --color-form-label: #{$default-color};
+  --color-form-label-hover: #{$default-color};
+  --color-form-hint: #{$default-color};
+
+  // v13 styles headings via `.application h1..h4` (large theme font, no rule).
+  // The system has no h2 rules, so V1 used Foundry's classic headings: smaller,
+  // with the dark-red underline. Replicate that look.
+  h1, h2, h3, h4 {
+    font-family: inherit;
+    color: $default-color;
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.3;
+    margin: 0.5em 0;
+    padding-bottom: 2px;
+    border: none;
+    border-bottom: 1px solid #782e22;
+    text-shadow: none;
+  }
+
+  input, textarea, select, button, prose-mirror, .editor-content {
+    font-family: inherit;
+    color: $default-color;
+  }
+
+  // Re-assert the system input look over v13's themed form fields.
+  input, textarea, select {
+    background: $personal-info-gradient;
+    border: solid 1px $default-color;
+    border-radius: 0;
+  }
+
+  // v13 themes placeholders (brownish); V1 had plain grey.
+  input::placeholder, textarea::placeholder {
+    color: $placeholder-text-color;
+    opacity: 1;
+  }
+
+  // v13 renders the ProseMirror menu bar dark; V1 had a light grey toolbar.
+  .editor-menu, prose-mirror menu {
+    background: #e0e0e0;
+    color: $default-color;
+    button, a, i, select, label {
+      color: $default-color;
+    }
+  }
+
+  .window-content {
+    background: $window-background-color;
+    color: $default-color;
+  }
+
+  // Fallback show-rule for active tabs. The class-based rule in _2-windows.scss
+  // (`.tab-sections .content .tab.active`) doesn't match the actor templates,
+  // which use `id="tab-sections"`. Item sheets keep their higher-specificity
+  // flex rule; actor tabs fall back to this.
+  .tab.active {
+    display: block;
+  }
+}

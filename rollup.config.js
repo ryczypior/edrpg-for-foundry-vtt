@@ -24,7 +24,11 @@ export default {
         }),
         scss({
             output: `./static/css/edrpg.css`,
-            failOnError: true,
+            // In watch mode (`npm start`) an SCSS error thrown by this plugin
+            // surfaces as an uncaughtException, which Rollup v2's watch CLI
+            // mishandles on Node 20 (`process.exit(Error)`), killing the watcher.
+            // Only fail hard for the production build; in dev just log and keep watching.
+            failOnError: process.env.NODE_ENV === "production",
             runtime: require("sass"),
             quietDeps: false,
         }),

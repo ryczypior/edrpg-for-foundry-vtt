@@ -1,18 +1,12 @@
-import ItemSheetEDRPG from "./ItemSheetEDRPG.js";
+import ItemSheetEDRPGV2 from "./v2/ItemSheetEDRPGV2.js";
 import EDRPG from "../../system/EDRPG.js";
 
-export default class ItemSheetEDRPGSkills extends ItemSheetEDRPG {
-  get template() {
-    return "systems/edrpg/templates/items/skill.html";
-  }
+export default class ItemSheetEDRPGSkills extends ItemSheetEDRPGV2 {
+  static BODY_TEMPLATE = "systems/edrpg/templates/items/v2/skill.html";
 
-  async getData() {
-    const sheetData = await super.getData();
-    sheetData.skillsCategories = duplicate(EDRPG.skillsCategories);
-    return sheetData;
-  }
-
-  activateListeners(html) {
-    super.activateListeners(html);
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    context.skillsCategories = foundry.utils.duplicate(EDRPG.skillsCategories);
+    return context;
   }
 }

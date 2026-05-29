@@ -1,95 +1,90 @@
-import ItemSheetEDRPG from "./ItemSheetEDRPG.js";
+import ItemSheetEDRPGV2 from "./v2/ItemSheetEDRPGV2.js";
 import EDRPG from "../../system/EDRPG.js";
-import EDRPGUtils from "../../system/EDRPGUtils";
 
-export default class ItemSheetEDRPGBackground extends ItemSheetEDRPG {
-  get template() {
-    return "systems/edrpg/templates/items/backgrounds.html";
+export default class ItemSheetEDRPGBackground extends ItemSheetEDRPGV2 {
+  static BODY_TEMPLATE = "systems/edrpg/templates/items/v2/backgrounds.html";
+
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    context.backgroundBonusTypes = foundry.utils.duplicate(EDRPG.backgroundBonusTypes);
+    return context;
   }
 
-  async getData() {
-    const sheetData = await super.getData();
-    sheetData.backgroundBonusTypes = duplicate(EDRPG.backgroundBonusTypes);
-    return sheetData;
+  _enrichmentTargets() {
+    const targets = super._enrichmentTargets();
+    targets.push("system.backgrounds.bonuses.value");
+    return targets;
   }
 
-  async _handleEnrichment(system) {
-    let enrichment = super._handleEnrichment(system);
-    enrichment["system.backgrounds.bonuses.value"] = await TextEditor.enrichHTML(system.backgrounds.bonuses.value, { async: true })
-    return expandObject(enrichment);
+  _onRender(context, options) {
+    super._onRender(context, options);
+    const el = this.element;
+    const bind = (selector, event, handler) => {
+      el.querySelectorAll(selector).forEach(node => node.addEventListener(event, handler.bind(this)));
+    };
+    bind('.bonusEffectCreate', 'click', this._onBonusEffectCreateClick);
+    bind('.bonusEffectRemove', 'click', this._onBonusEffectRemoveClick);
+    bind('.changeEffectType', 'change', this._onChangeEffectType);
+    bind('.changeEffectSkillType', 'change', this._onChangeEffectSkillType);
+    bind('.changeEffectSkill', 'change', this._onChangeEffectSkill);
+    bind('.changeEffectEnhancement', 'change', this._onChangeEffectEnhancement);
+    bind('.changeEffectSkillValue', 'change', this._onChangeEffectSkillValue);
   }
 
   async _onBonusEffectCreateClick(event) {
-    let effects = duplicate(this.item._source.system.backgrounds.effects);
-    if(!effects){
+    let effects = foundry.utils.duplicate(this.item._source.system.backgrounds.effects);
+    if (!effects) {
       effects = [];
     }
-    const effect = duplicate(game.edrpg.BackgroundEffect);
+    const effect = foundry.utils.duplicate(game.edrpg.BackgroundEffect);
     effects.push(effect);
-    return await this.item.update({"system.backgrounds.effects": effects});
+    return await this.item.update({ "system.backgrounds.effects": effects });
   }
 
   async _onBonusEffectRemoveClick(event) {
-    if(event){
-      if(event.stopPropagation){
-        event.stopPropagation()
-      }
-      if(event.stopImmediatePropagation){
-        event.stopImmediatePropagation();
-      }
-      if(event.preventDefault){
-        event.preventDefault();
-      }
+    if (event) {
+      event.stopPropagation?.();
+      event.stopImmediatePropagation?.();
+      event.preventDefault?.();
     }
-    const effects = duplicate(this.item._source.system.backgrounds.effects);
+    const effects = foundry.utils.duplicate(this.item._source.system.backgrounds.effects);
     const index = event.target.getAttribute('data-idx');
     effects.splice(index, 1);
-    return await this.item.update({"system.backgrounds.effects": effects});
+    return await this.item.update({ "system.backgrounds.effects": effects });
   }
 
   async _onChangeEffectType(event) {
-    const effects = duplicate(this.item._source.system.backgrounds.effects);
+    const effects = foundry.utils.duplicate(this.item._source.system.backgrounds.effects);
     const index = event.target.getAttribute('data-idx');
     effects[index].type = event.target.value;
-    return await this.item.update({"system.backgrounds.effects": effects});
+    return await this.item.update({ "system.backgrounds.effects": effects });
   }
 
   async _onChangeEffectSkillType(event) {
-    const effects = duplicate(this.item._source.system.backgrounds.effects);
+    const effects = foundry.utils.duplicate(this.item._source.system.backgrounds.effects);
     const index = event.target.getAttribute('data-idx');
     effects[index].skillSelect = event.target.value;
-    return await this.item.update({"system.backgrounds.effects": effects});
+    return await this.item.update({ "system.backgrounds.effects": effects });
   }
 
   async _onChangeEffectSkill(event) {
-    const effects = duplicate(this.item._source.system.backgrounds.effects);
+    const effects = foundry.utils.duplicate(this.item._source.system.backgrounds.effects);
     const index = event.target.getAttribute('data-idx');
     effects[index].skillId = event.target.value;
-    return await this.item.update({"system.backgrounds.effects": effects});
+    return await this.item.update({ "system.backgrounds.effects": effects });
   }
 
   async _onChangeEffectEnhancement(event) {
-    const effects = duplicate(this.item._source.system.backgrounds.effects);
+    const effects = foundry.utils.duplicate(this.item._source.system.backgrounds.effects);
     const index = event.target.getAttribute('data-idx');
     effects[index].enhancementId = event.target.value;
-    return await this.item.update({"system.backgrounds.effects": effects});
+    return await this.item.update({ "system.backgrounds.effects": effects });
   }
 
   async _onChangeEffectSkillValue(event) {
-    const effects = duplicate(this.item._source.system.backgrounds.effects);
+    const effects = foundry.utils.duplicate(this.item._source.system.backgrounds.effects);
     const index = event.target.getAttribute('data-idx');
     effects[index].skillValue = parseInt(event.target.value, 10) || 10;
-    return await this.item.update({"system.backgrounds.effects": effects});
-  }
-
-  activateListeners(html) {
-    super.activateListeners(html);
-    html.find('.bonusEffectCreate').click(this._onBonusEffectCreateClick.bind(this));
-    html.find('.bonusEffectRemove').click(this._onBonusEffectRemoveClick.bind(this));
-    html.find('.changeEffectType').change(this._onChangeEffectType.bind(this));
-    html.find('.changeEffectSkillType').change(this._onChangeEffectSkillType.bind(this));
-    html.find('.changeEffectSkill').change(this._onChangeEffectSkill.bind(this));
-    html.find('.changeEffectEnhancement').change(this._onChangeEffectEnhancement.bind(this));
-    html.find('.changeEffectSkillValue').change(this._onChangeEffectSkillValue.bind(this));
+    return await this.item.update({ "system.backgrounds.effects": effects });
   }
 }

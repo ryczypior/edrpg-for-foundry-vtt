@@ -1,3 +1,5 @@
+import { loadTemplatesCompat as loadTemplates } from "../system/compat.js";
+
 export default function () {
   /**
    * Init function loads tables, registers settings, and loads templates

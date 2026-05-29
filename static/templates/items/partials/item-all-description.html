@@ -2,16 +2,14 @@
     <div class="row">
         <div class="col-12">
         <h2 class="note-section label">{{localize "Description"}}</h2>
-    {{editor system.details.description.value target="system.details.description.value" engine="prosemirror" button=true
-    owner=owner editable=editable}}
+    {{#if editable}}<prose-mirror name="system.details.description.value" button="true" value="{{system.details.description.value}}">{{{enrichment.system.details.description.value}}}</prose-mirror>{{else}}{{{enrichment.system.details.description.value}}}{{/if}}
     {{#if (isGM)}}
         </div>
     </div>
     <div class="row">
         <div class="col-12">
     <h2 class="note-section label">{{localize "GM Notes"}}</h2>
-    {{editor system.details.gmdescription.value target="system.details.gmdescription.value" engine="prosemirror"
-    button=true owner=owner editable=editable}}
+    {{#if editable}}<prose-mirror name="system.details.gmdescription.value" button="true" value="{{system.details.gmdescription.value}}">{{{enrichment.system.details.gmdescription.value}}}</prose-mirror>{{else}}{{{enrichment.system.details.gmdescription.value}}}{{/if}}
     {{/if}}
         </div>
     </div>

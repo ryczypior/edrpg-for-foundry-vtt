@@ -1,5 +1,6 @@
 import EDRPGTests from "../tests/EDRPGTests";
 import EDRPGUtils from "./EDRPGUtils";
+import { renderTemplateCompat as renderTemplate } from "./compat.js";
 
 export default class ChatMessageEDRPG {
   static async activateListeners (html, message, data){
@@ -13,7 +14,7 @@ export default class ChatMessageEDRPG {
       ui.notifications.warn(game.i18n.localize('CHAT.ActorNotFound'));
       return;
     }
-    const status = duplicate(actor._source.system.status);
+    const status = foundry.utils.duplicate(actor._source.system.status);
     if(status.karma.value <= 0){
       ui.notifications.warn(game.i18n.localize('CHAT.NoKarmaPoints'));
       return;
@@ -42,11 +43,12 @@ export default class ChatMessageEDRPG {
 
   static async _onEditRollClick(event, message, data) {
     // Create a dialog to input a new roll value
-    const rollData = duplicate(message.flags.roll);
+    const rollData = foundry.utils.duplicate(message.flags.roll);
     const actor = message.flags.actor;
 
-    new Dialog({
-      title: game.i18n.localize("CHAT.EditRoll") || "Edit Roll",
+    const DialogV2 = foundry.applications.api.DialogV2;
+    await DialogV2.wait({
+      window: { title: game.i18n.localize("CHAT.EditRoll") || "Edit Roll" },
       content: `
         <form>
           <div class="form-group">
@@ -55,12 +57,16 @@ export default class ChatMessageEDRPG {
           </div>
         </form>
       `,
-      buttons: {
-        submit: {
-          icon: '<i class="fas fa-check"></i>',
+      rejectClose: false,
+      buttons: [
+        {
+          action: "submit",
+          icon: "fas fa-check",
           label: game.i18n.localize("CHAT.Submit") || "Submit",
-          callback: async (html) => {
-            const newRollValue = parseInt(html.find('[name="rollValue"]').val(), 10);
+          default: true,
+          callback: async (clickEvent, button, dialog) => {
+            const input = dialog.element.querySelector('[name="rollValue"]');
+            const newRollValue = parseInt(input?.value, 10);
 
             // Update the roll value in the message flags
             rollData.roll = newRollValue;
@@ -72,13 +78,13 @@ export default class ChatMessageEDRPG {
             await test.showTest();
           }
         },
-        cancel: {
-          icon: '<i class="fas fa-times"></i>',
+        {
+          action: "cancel",
+          icon: "fas fa-times",
           label: game.i18n.localize("CHAT.Cancel") || "Cancel"
         }
-      },
-      default: "submit"
-    }).render(true);
+      ]
+    });
   }
 
 

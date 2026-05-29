@@ -1,7 +1,11 @@
 .edrpgsheet{
 }
 
-.tab{
+// Scope to the system's own sheets — a bare `.tab { display: none }` leaks into
+// Foundry v13's ApplicationV2 sidebar (chat/settings/combat panels use `.tab`)
+// and hides the entire right sidebar.
+.edrpgsheet .tab,
+.edrpgitemsheet .tab {
   display: none;
 }
 .tab-sections{

@@ -1,0 +1,17 @@
+  <section class="tab-sections">
+    <nav class="sheet-tabs tabs" ondragstart="return false;" ondrop="return false;">
+      <a class="item active" data-tab="main">{{localize "ITEM.Description"}}</a>
+      <a class="item" data-tab="details">{{localize "ITEM.Details"}}</a>
+    </nav>
+    <section class="content">
+      <div class="tab main save-scroll" data-tab="main">
+        {{> systems/edrpg/templates/items/partials/item-all-cost.html}}
+        {{> systems/edrpg/templates/items/partials/item-all-description.html}}
+      </div>
+      <div class="tab details save-scroll" data-tab="details">
+        {{> systems/edrpg/templates/items/partials/item-all-socialfactor.html}}
+        {{> systems/edrpg/templates/items/partials/item-all-armour.html}}
+        {{> systems/edrpg/templates/items/partials/item-all-effects.html}}
+      </div>
+    </section>
+  </section>

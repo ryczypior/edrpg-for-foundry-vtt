@@ -1,0 +1,68 @@
+    <header class="container-fluid" ondragstart="return false;" ondrop="return false;">
+        <div class="row">
+            <div class="col-4 col-lg-2 characterImage">
+                <img class="" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" data-action="editImage">
+            </div>
+            <div class="col-6 col-lg-10">
+                <div class="row">
+                    <div class="col-12">
+                        <label class="nameField">
+                            <input name="name" type="text" value="{{actor.name}}"
+                                   placeholder="{{localize 'SHIPSHEET.ShipModel'}}">
+                            <span>{{localize "SHIPSHEET.ShipModel"}}</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <label>
+                            <input
+                                    type="number" value="{{system.shipInfo.defence.value}}"
+                                    readonly="readonly"
+                            >
+                            <span>{{localize "SHIPSHEET.Defence"}}</span>
+                            <a class="skill-roll-by-internalId roll-button" data-skill="tactics">
+                                <i class="fa-solid fa-dice-d10"></i>
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <label>
+                            <input
+                                    type="number" value="{{system.shipInfo.initiative.value}}"
+                                    readonly="readonly"
+                            >
+                            <a class="skill-roll-by-internalId roll-button" data-skill="tactics">
+                                <i class="fa-solid fa-dice-d10"></i>
+                            </a>
+                            <span>{{localize "SHIPSHEET.Initiative"}}</span>
+                        </label>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <label>
+                            <input
+                                    type="number" value="{{system.shipInfo.pursuit.value}}"
+                                    readonly="readonly"
+                            >
+                            <a class="skill-roll-by-internalId roll-button" data-skill="tactics">
+                                <i class="fa-solid fa-dice-d10"></i>
+                            </a>
+                            <span>{{localize "SHIPSHEET.Pursuit"}}</span>
+                        </label>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <label>
+                            <input
+                                    type="number" value="{{system.shipInfo.dogfight.value}}"
+                                    readonly="readonly"
+                            >
+                            <a class="skill-roll-by-internalId roll-button" data-skill="tactics">
+                                <i class="fa-solid fa-dice-d10"></i>
+                            </a>
+                            <span>{{localize "SHIPSHEET.Dogfight"}}</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>

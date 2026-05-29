@@ -56,7 +56,11 @@ $chat-button-background: $karma-input-gradient;
 @import "custom/6-shipSheet";
 
 
-i{
+// Scope to the system's own UI — a bare `i { pointer-events: none }` leaks
+// across Foundry v13 and breaks icon interaction (tooltips, control clicks).
+.edrpgsheet i,
+.edrpgitemsheet i,
+.chatMessage i {
   pointer-events: none;
 }
 
@@ -65,7 +69,10 @@ i{
   overflow-x: hidden;
 }
 
-.editor-content ul {
+// `.editor-content` is a Foundry core class used everywhere enriched HTML is
+// rendered; scope the list reset to the system's sheets.
+.edrpgsheet .editor-content ul,
+.edrpgitemsheet .editor-content ul {
   margin: 0px 0px;
 }
 

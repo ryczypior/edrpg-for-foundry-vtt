@@ -1,4 +1,5 @@
 import EDRPGTests from "./EDRPGTests.js";
+import { renderTemplateCompat as renderTemplate } from "../system/compat.js";
 
 export default class EDRPGSkillTests extends EDRPGTests {
   constructor(skill, actor) {
@@ -24,30 +25,28 @@ export default class EDRPGSkillTests extends EDRPGTests {
       bonusModifier: Number(this.item.bonusModifier),
       difficultyNumbers: this.difficultyNumbers,
     };
-    const callback = (html) => {
-      this.roll();
-    };
     let html = await renderTemplate("/systems/edrpg/templates/tests/skill-test.html", data);
 
-    return new Promise((resolve, reject) => {
-      new Dialog(
-        {
-          title: this.data.title,
-          content: html,
-          actor: this.actor,
-          data,
-          buttons:
-            {
-              rollButton:
-                {
-                  label: game.i18n.localize("TEST.Roll"),
-                  callback: html => resolve(callback(html))
-                }
-            },
-          default: "rollButton",
-          render: html => this.activateListeners(html)
-        }).render(true);
-    })
+    const DialogV2 = foundry.applications.api.DialogV2;
+    return new Promise((resolve) => {
+      const dialog = new DialogV2({
+        window: { title: this.data.title },
+        position: { width: 420 },
+        content: html,
+        buttons: [
+          {
+            action: "rollButton",
+            label: game.i18n.localize("TEST.Roll"),
+            default: true,
+            callback: () => resolve(this.roll())
+          }
+        ]
+      });
+      // ApplicationV2 emits a "render" lifecycle event; wrap the native root
+      // element in jQuery so the shared listener logic keeps working.
+      dialog.addEventListener("render", () => this.activateListeners($(dialog.element)));
+      dialog.render({ force: true });
+    });
   }
 
   activateListeners(html) {

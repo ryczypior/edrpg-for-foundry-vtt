@@ -8,3 +8,5 @@ node_modules
 edrpg.lock
 foundryconfig.json
 build
+.claude
+CLAUDE.md

@@ -6,8 +6,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            {{editor system.notes.value target="system.notes.value" engine="prosemirror" button=true
-            owner=owner editable=editable}}
+            {{#if editable}}<prose-mirror name="system.notes.value" button="true" value="{{system.notes.value}}">{{{enrichment.system.notes.value}}}</prose-mirror>{{else}}{{{enrichment.system.notes.value}}}{{/if}}
         </div>
     </div>
 </div>

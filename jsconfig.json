@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "Node",
+    "checkJs": false,
+    "types": ["@league-of-foundry-developers/foundry-vtt-types"]
+  },
+  "include": ["modules/**/*.js", "edrpg.js"],
+  "exclude": ["node_modules", "build", "static/css"]
+}

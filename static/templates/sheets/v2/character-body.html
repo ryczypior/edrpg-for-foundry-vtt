@@ -1,0 +1,65 @@
+  <section id="tab-sections">
+    <nav id="edrpg-tabs" class="sheet-tabs tabs" ondragstart="return false;" ondrop="return false;">
+      <a class="item active" data-tab="main">{{localize "SHEET.MainLabel"}}</a>
+      <a class="item" data-tab="skills">{{localize "SHEET.SkillsLabel"}}</a>
+      <a class="item" data-tab="backgroundskarma">{{localize "SHEET.BackgroundsAndKarmaLabel"}}</a>
+      <a class="item" data-tab="combat">{{localize "SHEET.CombatLabel"}}</a>
+      <a class="item" data-tab="equipment">{{localize "SHEET.EquipmentLabel"}}</a>
+      <a class="item" data-tab="details">{{localize "SHEET.DetailsLabel"}}</a>
+    </nav>
+
+    <section class="content">
+      <div class="tab main save-scroll" data-tab="main">
+        {{> systems/edrpg/templates/sheets/partials/actor-main.html}}
+      </div>
+      <div class="tab skills save-scroll" data-tab="skills">
+        {{> systems/edrpg/templates/sheets/partials/actor-skills.html}}
+      </div>
+      <div class="tab main save-scroll" data-tab="backgroundskarma">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              {{> systems/edrpg/templates/sheets/partials/actor-backgrounds.html}}
+            </div>
+            <div class="col-12 col-lg-6">
+              {{> systems/edrpg/templates/sheets/partials/actor-karma.html}}
+            </div>
+            <div class="col-12 col-lg-6">
+              {{> systems/edrpg/templates/sheets/partials/actor-enhancements.html}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab main save-scroll" data-tab="combat">
+        {{> systems/edrpg/templates/sheets/partials/actor-combat.html}}
+      </div>
+      <div class="tab main save-scroll" data-tab="equipment">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              {{> systems/edrpg/templates/sheets/partials/equipment/ranged-weapons.html}}
+              {{> systems/edrpg/templates/sheets/partials/equipment/clips-grenades.html}}
+              {{> systems/edrpg/templates/sheets/partials/equipment/armour.html}}
+              {{> systems/edrpg/templates/sheets/partials/equipment/general.html}}
+            </div>
+            <div class="col-12 col-lg-6">
+              {{> systems/edrpg/templates/sheets/partials/equipment/close-combat.html}}
+              {{> systems/edrpg/templates/sheets/partials/equipment/cybernetics.html}}
+              {{> systems/edrpg/templates/sheets/partials/equipment/wearables.html}}
+            </div>
+            <div class="col-12 col-lg-6">
+            </div>
+            <div class="col-12 col-lg-6">
+            </div>
+            <div class="col-12 col-lg-6">
+            </div>
+            <div class="col-12 col-lg-6">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab main save-scroll" data-tab="details">
+        {{> systems/edrpg/templates/sheets/partials/actor-details.html}}
+      </div>
+    </section>
+  </section>

@@ -4,8 +4,7 @@
         <h2>{{localize "ITEM.Background.EffectsDescritpion"}}</h2>
         </div>
         <div class="col-12">
-{{editor system.backgrounds.bonuses.value target="system.backgrounds.bonuses.value" engine="prosemirror" button=true
-owner=owner editable=editable}}
+{{#if editable}}<prose-mirror name="system.backgrounds.bonuses.value" button="true" value="{{system.backgrounds.bonuses.value}}">{{{enrichment.system.backgrounds.bonuses.value}}}</prose-mirror>{{else}}{{{enrichment.system.backgrounds.bonuses.value}}}{{/if}}
         </div>
     </div>
     <div class="row">

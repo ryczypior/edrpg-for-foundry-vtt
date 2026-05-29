@@ -19,7 +19,7 @@
   },
   "homepage": "https://gitlab.com/ryczypior/elite-dangerous-rpg-foundry-vtt",
   "devDependencies": {
-    "@league-of-foundry-developers/foundry-vtt-types": "^9.280.0",
+    "@league-of-foundry-developers/foundry-vtt-types": "^13.346.0-beta.20250812191140",
     "cross-env": "^7.0.3",
     "fs": "^0.0.1-security",
     "fs-extra": "^10.1.0",
@@ -30,7 +30,5 @@
     "rollup-plugin-jscc": "^2.0.0",
     "rollup-plugin-scss": "^3.0.0",
     "sass": "^1.70.0"
-  },
-  "dependencies": {
   }
 }

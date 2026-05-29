@@ -1,13 +1,5 @@
-import ItemSheetEDRPG from "./ItemSheetEDRPG.js";
-import EDRPG from "../../system/EDRPG";
-import EDRPGUtils from "../../system/EDRPGUtils";
+import ItemSheetEDRPGV2 from "./v2/ItemSheetEDRPGV2.js";
 
-export default class ItemSheetEDRPGRangedWeapons extends ItemSheetEDRPG {
-  get template() {
-    return "systems/edrpg/templates/items/ranged-weapons.html";
-  }
-
-  activateListeners(html) {
-    super.activateListeners(html);
-  }
+export default class ItemSheetEDRPGRangedWeapons extends ItemSheetEDRPGV2 {
+  static BODY_TEMPLATE = "systems/edrpg/templates/items/v2/ranged-weapons.html";
 }

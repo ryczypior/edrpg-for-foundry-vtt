@@ -1,12 +1,5 @@
-import ItemSheetEDRPG from "./ItemSheetEDRPG.js";
+import ItemSheetEDRPGV2 from "./v2/ItemSheetEDRPGV2.js";
 
-export default class ItemSheetEDRPGShipInternalModuleReinforcementPackages extends ItemSheetEDRPG {
-  get template() {
-    return "systems/edrpg/templates/items/ship-internal-module-reinforcement-package.html";
-  }
-
-
-  activateListeners(html) {
-    super.activateListeners(html);
-  }
+export default class ItemSheetEDRPGShipInternalModuleReinforcementPackages extends ItemSheetEDRPGV2 {
+  static BODY_TEMPLATE = null;
 }

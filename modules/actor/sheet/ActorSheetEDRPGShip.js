@@ -1,8 +1,9 @@
-import ActorSheetEDRPG from "./ActorSheetEDRPG.js";
-import EDRPGSkillTests from "../../tests/EDRPGSkillTests.js";
+import ActorSheetEDRPGV2 from "./v2/ActorSheetEDRPGV2.js";
 import EDRPG from "../../system/EDRPG";
 
-export default class ActorSheetEDRPGShip extends ActorSheetEDRPG {
+export default class ActorSheetEDRPGShip extends ActorSheetEDRPGV2 {
+  static HEADER_TEMPLATE = "systems/edrpg/templates/sheets/v2/ship-header.html";
+  static BODY_TEMPLATE = "systems/edrpg/templates/sheets/v2/ship-body.html";
 
   fixedComponentsTypes = {
     'Ship Bulkheads': 'bulkhead',
@@ -23,9 +24,6 @@ export default class ActorSheetEDRPGShip extends ActorSheetEDRPG {
     'Melee Weapons',
     'Ammo Clips',
     'Wearables',
-    "Ranged Weapons",
-    "Melee Weapons",
-    "Ammo Clips",
     "Commodities",
     "Ship Shields",
     "Ship Weapons",
@@ -44,109 +42,79 @@ export default class ActorSheetEDRPGShip extends ActorSheetEDRPG {
     "Ship Internal - Refineries",
     "Ship Internal - Shield Cell Banks",
     "Ship Internal - Shield Generators",
-  ] + Object.keys(this.fixedComponentsTypes);
+    ...Object.keys(this.fixedComponentsTypes),
+  ];
 
   validCharacterSheetTypes = [
     'Character',
     'NPC',
-  ]
-
-  get template() {
-    let template = super.template;
-    return "systems/edrpg/templates/sheets/ship-sheet.html";
-  }
+  ];
 
   async getFixedComponents() {
-    const elements = {
-      "bulkhead": {
-        title: game.i18n.localize("SHIPSHEET.FixedBulkhead"),
-        size: this.actor.system.shipFixedComponents.bulkhead.size,
-        item: this.actor.system.shipFixedComponents.bulkhead.item,
-      },
-      "powerPlant": {
-        title: game.i18n.localize("SHIPSHEET.FixedPowerPlant"),
-        size: this.actor.system.shipFixedComponents.powerPlant.size,
-        item: this.actor.system.shipFixedComponents.powerPlant.item,
-      },
-      "thrusters": {
-        title: game.i18n.localize("SHIPSHEET.FixedThrusters"),
-        size: this.actor.system.shipFixedComponents.thrusters.size,
-        item: this.actor.system.shipFixedComponents.thrusters.item,
-      },
-      "fsd": {
-        title: game.i18n.localize("SHIPSHEET.FixedFSD"),
-        size: this.actor.system.shipFixedComponents.fsd.size,
-        item: this.actor.system.shipFixedComponents.fsd.item,
-      },
-      "lifeSupport": {
-        title: game.i18n.localize("SHIPSHEET.FixedLifeSupport"),
-        size: this.actor.system.shipFixedComponents.lifeSupport.size,
-        item: this.actor.system.shipFixedComponents.lifeSupport.item,
-      },
-      "powerDistributor": {
-        title: game.i18n.localize("SHIPSHEET.FixedPowerDistributor"),
-        size: this.actor.system.shipFixedComponents.powerDistributor.size,
-        item: this.actor.system.shipFixedComponents.powerDistributor.item,
-      },
-      "sensors": {
-        title: game.i18n.localize("SHIPSHEET.FixedSensors"),
-        size: this.actor.system.shipFixedComponents.sensors.size,
-        item: this.actor.system.shipFixedComponents.sensors.item,
-      },
-      "cargoHatch": {
-        title: game.i18n.localize("SHIPSHEET.FixedCargoHatch"),
-        size: this.actor.system.shipFixedComponents.cargoHatch.size,
-        item: this.actor.system.shipFixedComponents.cargoHatch.item,
-      },
-    }
-    return elements;
+    const fc = this.actor.system.shipFixedComponents;
+    const make = (key, titleKey) => ({
+      title: game.i18n.localize(titleKey),
+      size: fc[key].size,
+      item: fc[key].item,
+    });
+    return {
+      "bulkhead": make("bulkhead", "SHIPSHEET.FixedBulkhead"),
+      "powerPlant": make("powerPlant", "SHIPSHEET.FixedPowerPlant"),
+      "thrusters": make("thrusters", "SHIPSHEET.FixedThrusters"),
+      "fsd": make("fsd", "SHIPSHEET.FixedFSD"),
+      "lifeSupport": make("lifeSupport", "SHIPSHEET.FixedLifeSupport"),
+      "powerDistributor": make("powerDistributor", "SHIPSHEET.FixedPowerDistributor"),
+      "sensors": make("sensors", "SHIPSHEET.FixedSensors"),
+      "cargoHatch": make("cargoHatch", "SHIPSHEET.FixedCargoHatch"),
+    };
   }
 
-  async getData() {
-    const sheetData = await super.getData();
-    console.log(this.actor);
-    sheetData.pilot = this.actor.system.pilot;
-    sheetData.pilotDodge = 0;
-    sheetData.pilotInitiative = 0;
-    sheetData.pilotSpaceshipPiloting = 0;
-    sheetData.shipComponentClasses = EDRPG.shipComponentClasses;
-    sheetData.shipComponentTypes = EDRPG.shipComponentTypes;
-    sheetData.shipWeaponsSizes = EDRPG.shipWeaponsSizes;
-    sheetData.shipCategories = EDRPG.shipTypes;
-    sheetData.landingPadSizes = EDRPG.landingPadSizeses;
-    if (sheetData.pilot) {
-      sheetData.pilotDodge = sheetData.pilot.system.info.dodge.value;
-      sheetData.pilotInitiative = sheetData.pilot.system.info.initiative.value;
-      const spaceshipPiloting = this.actor.findSkillByInternalId('Spaceship Piloting', sheetData.pilot);
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    context.pilot = this.actor.system.pilot;
+    context.pilotDodge = 0;
+    context.pilotInitiative = 0;
+    context.pilotSpaceshipPiloting = 0;
+    context.shipComponentClasses = EDRPG.shipComponentClasses;
+    context.shipComponentTypes = EDRPG.shipComponentTypes;
+    context.shipWeaponsSizes = EDRPG.shipWeaponsSizes;
+    context.shipCategories = EDRPG.shipTypes;
+    context.landingPadSizes = EDRPG.landingPadSizes;
+    if (context.pilot) {
+      context.pilotDodge = context.pilot.system.info.dodge.value;
+      context.pilotInitiative = context.pilot.system.info.initiative.value;
+      const spaceshipPiloting = this.actor.findSkillByInternalId('Spaceship Piloting', context.pilot);
       if (spaceshipPiloting) {
-        sheetData.pilotSpaceshipPiloting = spaceshipPiloting.system.skill.skillBonus.value;
+        context.pilotSpaceshipPiloting = spaceshipPiloting.system.skill.skillBonus.value;
       }
     }
-    sheetData.fixedComponents = await this.getFixedComponents();
-    sheetData.internalComponents = await this.actor.system.shipInternalComponents;
-    sheetData.utilityMounts = await this.actor.system.shipUtilityMounts;
-    sheetData.weapons = await this.actor.system.shipWeapons;
-    sheetData.shipType = EDRPG.shipTypes;
-    sheetData.landingPadSize = EDRPG.landingPadSizeses;
-    sheetData.landingPadSize = EDRPG.landingPadSizeses;
-    return sheetData;
+    context.fixedComponents = await this.getFixedComponents();
+    context.internalComponents = this.actor.system.shipInternalComponents;
+    context.utilityMounts = this.actor.system.shipUtilityMounts;
+    context.weapons = this.actor.system.shipWeapons;
+    context.shipType = EDRPG.shipTypes;
+    context.landingPadSize = EDRPG.landingPadSizes;
+    return context;
   }
 
-  async _onDropActor(event, data) {
-    const source = await fromUuid(data.uuid);
+  /** V2 routes document drops here; dispatch Actors to our handler. */
+  async _onDropDocument(event, document) {
+    if (document instanceof Actor) {
+      return this._onDropActor(event, document);
+    }
+    return super._onDropDocument(event, document);
+  }
+
+  async _onDropActor(event, source) {
     if (!source) return false;
     if (!this.validCharacterSheetTypes.includes(source.type)) return false;
     if (event.target.closest(".pilot")) {
-      await this.actor.update({
-        'system.pilot': source
-      });
+      await this.actor.update({ 'system.pilot': source });
       return true;
     } else if (event.target.closest(".crew")) {
-      const crew = duplicate(this.actor.system.crew);
+      const crew = foundry.utils.duplicate(this.actor.system.crew);
       crew.push(source);
-      await this.actor.update({
-        'system.crew': crew
-      });
+      await this.actor.update({ 'system.crew': crew });
       return true;
     }
     await this.recalculateFormulas();
@@ -163,7 +131,7 @@ export default class ActorSheetEDRPGShip extends ActorSheetEDRPG {
       };
       if (this.actor.system.pilot) {
         const spaceshipPiloting = this.actor.findSkillByInternalId('Spaceship Piloting', this.actor.system.pilot);
-        if(spaceshipPiloting) {
+        if (spaceshipPiloting) {
           data['system.shipInfo.defence.value'] += Number(spaceshipPiloting.system.skill.skillBonus.value);
           data['system.shipInfo.pursuit.value'] += Math.floor(Number(spaceshipPiloting.system.skill.skillBonus.value) / 2);
         }
@@ -205,41 +173,31 @@ export default class ActorSheetEDRPGShip extends ActorSheetEDRPG {
     return false;
   }
 
-  async _onDropItem(event, data) {
-    const item = await fromUuid(data.uuid);
+  async _onDropItem(event, item) {
     if (Object.keys(this.fixedComponentsTypes).indexOf(item.type) !== -1) {
       return await this._onDropFixedComponents(event, item);
     }
-    await this.recalculateFormulas();
-    return true;
+    return await super._onDropItem(event, item);
   }
 
   async _onRemovePilot(event) {
-    await this.actor.update({
-      'system.pilot': null
-    });
+    await this.actor.update({ 'system.pilot': null });
     return await this.recalculateFormulas();
   }
 
   async _changeComponentCount(event) {
     const componentTypes = ['shipWeapons', 'shipUtilityMounts', 'shipInternalComponents'];
     const componentType = event.target.getAttribute('data-componentName');
-    console.log(componentType);
     if (componentTypes.indexOf(componentType) === -1) {
       return null;
     }
-    let components = duplicate(this.actor.system[componentType]);
+    let components = foundry.utils.duplicate(this.actor.system[componentType]);
     let componentsCount = components.length;
     let newCount = Number(event.target.value);
-    if(newCount >= 0){
-      if(newCount > componentsCount){
+    if (newCount >= 0) {
+      if (newCount > componentsCount) {
         for (let i = componentsCount; i < newCount; i++) {
-          components.push({
-            size: 1,
-            strength: 0,
-            power: 0,
-            item: null,
-          });
+          components.push({ size: 1, strength: 0, power: 0, item: null });
         }
       } else {
         components = components.slice(0, newCount);
@@ -251,13 +209,12 @@ export default class ActorSheetEDRPGShip extends ActorSheetEDRPG {
     return await this.recalculateFormulas();
   }
 
-  activateListeners(html) {
-    super.activateListeners(html);
-    html.find('.skill-roll').click(this._onSkillClick.bind(this));
-    html.find('.remove-pilot').click(this._onRemovePilot.bind(this));
-    html.find('.changeComponentCount').change(this._changeComponentCount.bind(this));
-    html.find('.recalculateFormula').change(debounce(async (event) => {
-      await this.recalculateFormulas(event);
-    }, 200));
+  _onRender(context, options) {
+    super._onRender(context, options);
+    const el = this.element;
+    el.querySelectorAll('.remove-pilot').forEach(n => n.addEventListener('click', this._onRemovePilot.bind(this)));
+    el.querySelectorAll('.changeComponentCount').forEach(n => n.addEventListener('change', this._changeComponentCount.bind(this)));
+    const debouncedRecalc = foundry.utils.debounce((event) => this.recalculateFormulas(event), 200);
+    el.querySelectorAll('.recalculateFormula').forEach(n => n.addEventListener('change', debouncedRecalc));
   }
 }

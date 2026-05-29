@@ -65,5 +65,18 @@ export default function () {
     Handlebars.registerHelper("settings", function (key) {
       return game.settings.get("edrpg", key);
     });
+
+    // Re-register the legacy `{{#select value}}...{{/select}}` block helper.
+    // Foundry deprecated its core `select` helper (removed in v14); this faithful
+    // reimplementation overrides it so the ~15 partials using it keep working and
+    // the deprecation warning is silenced. It renders the inner <option> markup
+    // and adds `selected` to the option whose value matches.
+    Handlebars.registerHelper("select", function (selected, options) {
+      const escapeRegExp = (str) => String(str).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const escaped = escapeRegExp(Handlebars.escapeExpression(String(selected ?? "")));
+      const rgx = new RegExp(' value=["\']' + escaped + '["\']');
+      const html = options.fn(this);
+      return html.replace(rgx, "$& selected");
+    });
   })
 }

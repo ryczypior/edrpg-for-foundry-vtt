@@ -764,7 +764,7 @@ EDRPG.shipTypes = {
   }
 }
 
-EDRPG.landingPadSizeses = {
+EDRPG.landingPadSizes = {
   small: {
     name: "SHIPSHEET.LandingPadSizeSmall",
   },

@@ -48,9 +48,9 @@
     "primaryTokenAttribute": "status.wounds",
     "secondaryTokenAttribute": "status.advantage",
     "compatibility" : {
-        "minimum" : 10.279,
-        "verified" : 10,
-        "maximum" : 12
+        "minimum" : 12,
+        "verified" : 13,
+        "maximum" : 13
     },
     "manifestPlusVersion": "1.0.0",
     "templateVersion":3,

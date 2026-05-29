@@ -2,15 +2,13 @@
     <div class="row">
         <div class="col-12">
             <h2 class="note-section label">{{localize "ITEM.Karma.Prerequisite"}}</h2>
-{{editor system.karma.effect.value target="system.karma.effect.value" engine="prosemirror" button=true
-owner=owner editable=editable}}
+{{#if editable}}<prose-mirror name="system.karma.effect.value" button="true" value="{{system.karma.effect.value}}">{{{enrichment.system.karma.effect.value}}}</prose-mirror>{{else}}{{{enrichment.system.karma.effect.value}}}{{/if}}
         </div>
     </div>
     <div class="row">
         <div class="col-12">
 <h2 class="note-section label">{{localize "ITEM.Karma.Effect"}}</h2>
-{{editor system.karma.prerequisite.value target="system.karma.prerequisite.value" engine="prosemirror" button=true
-owner=owner editable=editable}}
+{{#if editable}}<prose-mirror name="system.karma.prerequisite.value" button="true" value="{{system.karma.prerequisite.value}}">{{{enrichment.system.karma.prerequisite.value}}}</prose-mirror>{{else}}{{{enrichment.system.karma.prerequisite.value}}}{{/if}}
         </div>
     </div>
     <div class="row">

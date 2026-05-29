@@ -1,16 +1,5 @@
-import ActorSheetEDRPG from "./ActorSheetEDRPG.js";
-import EDRPGSkillTests from "../../tests/EDRPGSkillTests.js";
+import ActorSheetEDRPGV2 from "./v2/ActorSheetEDRPGV2.js";
 
-export default class ActorSheetEDRPGVehicle extends ActorSheetEDRPG {
-
-  get template() {
-    let template = super.template;
-    if (!game.user.isGM && this.actor.limited) return "systems/edrpg/templates/sheets/character-limited.html";
-    return "systems/edrpg/templates/sheets/vehicle-sheet.html";
-  }
-
-  activateListeners(html) {
-    super.activateListeners(html);
-    html.find('.skill-roll').click(this._onSkillClick.bind(this));
-  }
+// vehicle-sheet.html is empty in V1 → uses the shared empty-body until built out.
+export default class ActorSheetEDRPGVehicle extends ActorSheetEDRPGV2 {
 }

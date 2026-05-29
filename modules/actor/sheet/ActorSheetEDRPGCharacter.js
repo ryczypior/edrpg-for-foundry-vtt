@@ -1,7 +1,8 @@
-import ActorSheetEDRPG from "./ActorSheetEDRPG.js";
-import EDRPGSkillTests from "../../tests/EDRPGSkillTests.js";
+import ActorSheetEDRPGV2 from "./v2/ActorSheetEDRPGV2.js";
 
-export default class ActorSheetEDRPGCharacter extends ActorSheetEDRPG {
+export default class ActorSheetEDRPGCharacter extends ActorSheetEDRPGV2 {
+  static HEADER_TEMPLATE = "systems/edrpg/templates/sheets/v2/character-header.html";
+  static BODY_TEMPLATE = "systems/edrpg/templates/sheets/v2/character-body.html";
 
   validItemTypes = [
     'Backgrounds',
@@ -17,14 +18,8 @@ export default class ActorSheetEDRPGCharacter extends ActorSheetEDRPG {
     'Skills',
   ];
 
-  get template() {
-    let template = super.template;
-    if (!game.user.isGM && this.actor.limited) return "systems/edrpg/templates/sheets/character-limited.html";
-    return "systems/edrpg/templates/sheets/character-sheet.html";
-  }
-
   async _checkRankPoints() {
-    let status = duplicate(this.actor.system.status);
+    let status = foundry.utils.duplicate(this.actor.system.status);
     let currentPoints = status.rankPoints.value;
     for (let rankIndex of Object.keys(game.edrpg.config.ranks)) {
       const rank = game.edrpg.config.ranks[rankIndex];
@@ -32,12 +27,15 @@ export default class ActorSheetEDRPGCharacter extends ActorSheetEDRPG {
         status.rank.value = rank;
       }
     }
-    return await this.actor.update({"system.status": status});
+    return await this.actor.update({ "system.status": status });
   }
 
   async _onChangeStatusValue(event) {
+    // Capture before awaiting: native event.currentTarget is nulled once the
+    // event finishes dispatching (i.e. after the first await).
+    const stateId = event.currentTarget?.attributes['data-stateid']?.value;
     let ret = await super._onChangeStatusValue(event);
-    if (event.currentTarget.attributes['data-stateid'].value === 'rankPoints') {
+    if (stateId === 'rankPoints') {
       ret = await this._checkRankPoints();
     }
     return ret;
@@ -49,9 +47,5 @@ export default class ActorSheetEDRPGCharacter extends ActorSheetEDRPG {
 
   async _onRemoveBackgrounds(item) {
     return await this.actor.removeBackgrounds(item);
-  }
-
-  activateListeners(html) {
-    super.activateListeners(html);
   }
 }

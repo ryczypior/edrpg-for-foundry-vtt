@@ -1,0 +1,23 @@
+    <section id="tab-sections">
+        <nav id="edrpg-tabs" class="sheet-tabs tabs" ondragstart="return false;" ondrop="return false;">
+            <a class="item active" data-tab="main">{{localize "SHIPSHEET.MainLabel"}}</a>
+            <a class="item" data-tab="components">{{localize "SHIPSHEET.ComponentsLabel"}}</a>
+            <a class="item" data-tab="crew">{{localize "SHIPSHEET.CrewLabel"}}</a>
+            <a class="item" data-tab="equipment">{{localize "SHIPSHEET.EquipmentLabel"}}</a>
+        </nav>
+
+        <section class="content">
+            <div class="tab main save-scroll" data-tab="main">
+                {{> systems/edrpg/templates/sheets/partials-ship/ship-main.html}}
+            </div>
+            <div class="tab skills save-scroll" data-tab="components">
+                {{> systems/edrpg/templates/sheets/partials-ship/ship-components.html}}
+            </div>
+            <div class="tab main save-scroll" data-tab="crew">
+                {{> systems/edrpg/templates/sheets/partials-ship/ship-crew.html}}
+            </div>
+            <div class="tab main save-scroll" data-tab="equipment">
+                {{> systems/edrpg/templates/sheets/partials-ship/ship-equipment.html}}
+            </div>
+        </section>
+    </section>
