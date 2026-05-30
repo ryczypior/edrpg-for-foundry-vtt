@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <h2>{{localize "SHIPSHEET.PilotLabel"}}</h2>
-            <div class="pilot">
+            <div class="pilot" data-drop-types="__actor">
                 {{#if pilot.name}}
                 <div class="pilot-entry">
                     <div class="image">
@@ -55,37 +55,43 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-content-lg-3">
             <label>
                 <input type="number" name="system.shipInfo.agility.value" min="0" step="1" value="{{system.shipInfo.agility.value}}" class="recalculateFormula">
                 <span>{{localize 'SHIPSHEET.ShipStatsAgility'}}</span>
             </label>
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-content-lg-3">
             <label>
                 <input type="number" name="system.shipInfo.speed.value" min="0" step="1" value="{{system.shipInfo.speed.value}}" class="recalculateFormula">
                 <span>{{localize 'SHIPSHEET.ShipStatsSpeed'}}</span>
             </label>
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-content-lg-3">
             <label>
                 <input type="number" name="system.shipInfo.range.value" min="0" step="1" value="{{system.shipInfo.range.value}}" class="recalculateFormula">
                 <span>{{localize 'SHIPSHEET.ShipStatsRange'}}</span>
             </label>
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-content-lg-3">
             <label>
                 <input type="number" name="system.shipInfo.fuel.value" min="0" step="1" value="{{system.shipInfo.fuel.value}}" class="recalculateFormula">
                 <span>{{localize 'SHIPSHEET.ShipStatsFuelTank'}}</span>
             </label>
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-content-lg-3">
             <label>
                 <input type="number" name="system.shipInfo.hull.value" min="0" step="1" value="{{system.shipInfo.hull.value}}" class="recalculateFormula">
                 <span>{{localize 'SHIPSHEET.ShipStatsHull'}}</span>
             </label>
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-content-lg-3">
+            <label>
+                <input type="number" value="{{hullTotal}}" readonly="readonly">
+                <span>{{localize 'SHIPSHEET.HullTotal'}}</span>
+            </label>
+        </div>
+        <div class="col-6 col-content-lg-3">
             <label>
                 {{#select system.shipInfo.shipType.value}}
                 <select name="system.shipInfo.shipType.value" class="recalculateFormula">
@@ -101,7 +107,7 @@
                 <span>{{localize 'SHIPSHEET.ShipCategory'}}</span>
             </label>
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-content-lg-3">
             <label>
                 {{#select system.shipInfo.landingPad.value}}
                 <select name="system.shipInfo.landingPad.value" class="recalculateFormula">
@@ -117,13 +123,13 @@
                 <span>{{localize 'SHIPSHEET.ShipLandingPad'}}</span>
             </label>
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-content-lg-3">
             <label>
                 <input type="text" name="system.shipInfo.dimensions.value" min="0" step="1" value="{{system.shipInfo.dimensions.value}}">
                 <span>{{localize 'SHIPSHEET.ShipDimensions'}}</span>
             </label>
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-content-lg-3">
             <label>
                 <input type="number" name="system.shipInfo.cost.value" min="0" step="1" value="{{system.shipInfo.cost.value}}">
                 <span>{{localize 'SHIPSHEET.ShipCost'}}</span>
@@ -131,22 +137,28 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-content-lg-3">
             <label>
                 <input type="number" class="changeComponentCount" data-componentName="shipWeapons" name="system.shipInfo.weaponsSlotNumper.value" min="1" step="1" value="{{system.shipInfo.weaponsSlotNumper.value}}" class="recalculateFormula">
                 <span>{{localize 'SHIPSHEET.WeaponsMountNo'}}</span>
             </label>
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-content-lg-3">
             <label>
                 <input type="number" class="changeComponentCount" data-componentName="shipUtilityMounts" name="system.shipInfo.utilitySlotNumper.value" min="1" step="1" value="{{system.shipInfo.utilitySlotNumper.value}}" class="recalculateFormula">
                 <span>{{localize 'SHIPSHEET.UtlityMountNo'}}</span>
             </label>
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-content-lg-3">
             <label>
                 <input type="number" class="changeComponentCount" data-componentName="shipInternalComponents" name="system.shipInfo.internalSlotNumper.value" min="1" step="1" value="{{system.shipInfo.internalSlotNumper.value}}" class="recalculateFormula">
                 <span>{{localize 'SHIPSHEET.InternalMountNo'}}</span>
+            </label>
+        </div>
+        <div class="col-6 col-content-lg-3">
+            <label>
+                <input type="number" name="system.shipInfo.crew.value" min="0" step="1" value="{{system.shipInfo.crew.value}}">
+                <span>{{localize 'SHIPSHEET.CrewLabel'}}</span>
             </label>
         </div>
     </div>

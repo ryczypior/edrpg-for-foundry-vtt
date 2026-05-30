@@ -1,9 +1,11 @@
-// Container breakpoints (analogiczne do Bootstrapa, ale dla container queries)
+// Container breakpoints — these respond to the nearest `.container`/`.container-fluid`
+// inline-size (i.e. the sheet WINDOW width) via container queries, NOT the viewport.
+// Produces classes like `col-content-md-6`, `col-content-lg-4`, `offset-content-md-3`.
 $container-breakpoints: (
-        csm: 576px,
-        cmd: 768px,
-        clg: 992px,
-        cxl: 1200px
+        content-sm: 576px,
+        content-md: 700px,
+        content-lg: 900px,
+        content-xl: 1100px
 );
 
 // Generate container grid

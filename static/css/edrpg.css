@@ -4135,350 +4135,350 @@
 }
 
 @container (min-width: 576px) {
-  .col-csm-1 {
+  .col-content-sm-1 {
     flex: 0 0 auto;
     width: 8.3333333333%;
   }
-  .col-csm-2 {
+  .col-content-sm-2 {
     flex: 0 0 auto;
     width: 16.6666666667%;
   }
-  .col-csm-3 {
+  .col-content-sm-3 {
     flex: 0 0 auto;
     width: 25%;
   }
-  .col-csm-4 {
+  .col-content-sm-4 {
     flex: 0 0 auto;
     width: 33.3333333333%;
   }
-  .col-csm-5 {
+  .col-content-sm-5 {
     flex: 0 0 auto;
     width: 41.6666666667%;
   }
-  .col-csm-6 {
+  .col-content-sm-6 {
     flex: 0 0 auto;
     width: 50%;
   }
-  .col-csm-7 {
+  .col-content-sm-7 {
     flex: 0 0 auto;
     width: 58.3333333333%;
   }
-  .col-csm-8 {
+  .col-content-sm-8 {
     flex: 0 0 auto;
     width: 66.6666666667%;
   }
-  .col-csm-9 {
+  .col-content-sm-9 {
     flex: 0 0 auto;
     width: 75%;
   }
-  .col-csm-10 {
+  .col-content-sm-10 {
     flex: 0 0 auto;
     width: 83.3333333333%;
   }
-  .col-csm-11 {
+  .col-content-sm-11 {
     flex: 0 0 auto;
     width: 91.6666666667%;
   }
-  .col-csm-12 {
+  .col-content-sm-12 {
     flex: 0 0 auto;
     width: 100%;
   }
-  .col-csm-auto {
+  .col-content-sm-auto {
     flex: 0 0 auto;
     width: auto;
   }
-  .offset-csm-1 {
+  .offset-content-sm-1 {
     margin-left: 8.3333333333%;
   }
-  .offset-csm-2 {
+  .offset-content-sm-2 {
     margin-left: 16.6666666667%;
   }
-  .offset-csm-3 {
+  .offset-content-sm-3 {
     margin-left: 25%;
   }
-  .offset-csm-4 {
+  .offset-content-sm-4 {
     margin-left: 33.3333333333%;
   }
-  .offset-csm-5 {
+  .offset-content-sm-5 {
     margin-left: 41.6666666667%;
   }
-  .offset-csm-6 {
+  .offset-content-sm-6 {
     margin-left: 50%;
   }
-  .offset-csm-7 {
+  .offset-content-sm-7 {
     margin-left: 58.3333333333%;
   }
-  .offset-csm-8 {
+  .offset-content-sm-8 {
     margin-left: 66.6666666667%;
   }
-  .offset-csm-9 {
+  .offset-content-sm-9 {
     margin-left: 75%;
   }
-  .offset-csm-10 {
+  .offset-content-sm-10 {
     margin-left: 83.3333333333%;
   }
-  .offset-csm-11 {
+  .offset-content-sm-11 {
     margin-left: 91.6666666667%;
   }
 }
-@container (min-width: 768px) {
-  .col-cmd-1 {
+@container (min-width: 700px) {
+  .col-content-md-1 {
     flex: 0 0 auto;
     width: 8.3333333333%;
   }
-  .col-cmd-2 {
+  .col-content-md-2 {
     flex: 0 0 auto;
     width: 16.6666666667%;
   }
-  .col-cmd-3 {
+  .col-content-md-3 {
     flex: 0 0 auto;
     width: 25%;
   }
-  .col-cmd-4 {
+  .col-content-md-4 {
     flex: 0 0 auto;
     width: 33.3333333333%;
   }
-  .col-cmd-5 {
+  .col-content-md-5 {
     flex: 0 0 auto;
     width: 41.6666666667%;
   }
-  .col-cmd-6 {
+  .col-content-md-6 {
     flex: 0 0 auto;
     width: 50%;
   }
-  .col-cmd-7 {
+  .col-content-md-7 {
     flex: 0 0 auto;
     width: 58.3333333333%;
   }
-  .col-cmd-8 {
+  .col-content-md-8 {
     flex: 0 0 auto;
     width: 66.6666666667%;
   }
-  .col-cmd-9 {
+  .col-content-md-9 {
     flex: 0 0 auto;
     width: 75%;
   }
-  .col-cmd-10 {
+  .col-content-md-10 {
     flex: 0 0 auto;
     width: 83.3333333333%;
   }
-  .col-cmd-11 {
+  .col-content-md-11 {
     flex: 0 0 auto;
     width: 91.6666666667%;
   }
-  .col-cmd-12 {
+  .col-content-md-12 {
     flex: 0 0 auto;
     width: 100%;
   }
-  .col-cmd-auto {
+  .col-content-md-auto {
     flex: 0 0 auto;
     width: auto;
   }
-  .offset-cmd-1 {
+  .offset-content-md-1 {
     margin-left: 8.3333333333%;
   }
-  .offset-cmd-2 {
+  .offset-content-md-2 {
     margin-left: 16.6666666667%;
   }
-  .offset-cmd-3 {
+  .offset-content-md-3 {
     margin-left: 25%;
   }
-  .offset-cmd-4 {
+  .offset-content-md-4 {
     margin-left: 33.3333333333%;
   }
-  .offset-cmd-5 {
+  .offset-content-md-5 {
     margin-left: 41.6666666667%;
   }
-  .offset-cmd-6 {
+  .offset-content-md-6 {
     margin-left: 50%;
   }
-  .offset-cmd-7 {
+  .offset-content-md-7 {
     margin-left: 58.3333333333%;
   }
-  .offset-cmd-8 {
+  .offset-content-md-8 {
     margin-left: 66.6666666667%;
   }
-  .offset-cmd-9 {
+  .offset-content-md-9 {
     margin-left: 75%;
   }
-  .offset-cmd-10 {
+  .offset-content-md-10 {
     margin-left: 83.3333333333%;
   }
-  .offset-cmd-11 {
+  .offset-content-md-11 {
     margin-left: 91.6666666667%;
   }
 }
-@container (min-width: 992px) {
-  .col-clg-1 {
+@container (min-width: 900px) {
+  .col-content-lg-1 {
     flex: 0 0 auto;
     width: 8.3333333333%;
   }
-  .col-clg-2 {
+  .col-content-lg-2 {
     flex: 0 0 auto;
     width: 16.6666666667%;
   }
-  .col-clg-3 {
+  .col-content-lg-3 {
     flex: 0 0 auto;
     width: 25%;
   }
-  .col-clg-4 {
+  .col-content-lg-4 {
     flex: 0 0 auto;
     width: 33.3333333333%;
   }
-  .col-clg-5 {
+  .col-content-lg-5 {
     flex: 0 0 auto;
     width: 41.6666666667%;
   }
-  .col-clg-6 {
+  .col-content-lg-6 {
     flex: 0 0 auto;
     width: 50%;
   }
-  .col-clg-7 {
+  .col-content-lg-7 {
     flex: 0 0 auto;
     width: 58.3333333333%;
   }
-  .col-clg-8 {
+  .col-content-lg-8 {
     flex: 0 0 auto;
     width: 66.6666666667%;
   }
-  .col-clg-9 {
+  .col-content-lg-9 {
     flex: 0 0 auto;
     width: 75%;
   }
-  .col-clg-10 {
+  .col-content-lg-10 {
     flex: 0 0 auto;
     width: 83.3333333333%;
   }
-  .col-clg-11 {
+  .col-content-lg-11 {
     flex: 0 0 auto;
     width: 91.6666666667%;
   }
-  .col-clg-12 {
+  .col-content-lg-12 {
     flex: 0 0 auto;
     width: 100%;
   }
-  .col-clg-auto {
+  .col-content-lg-auto {
     flex: 0 0 auto;
     width: auto;
   }
-  .offset-clg-1 {
+  .offset-content-lg-1 {
     margin-left: 8.3333333333%;
   }
-  .offset-clg-2 {
+  .offset-content-lg-2 {
     margin-left: 16.6666666667%;
   }
-  .offset-clg-3 {
+  .offset-content-lg-3 {
     margin-left: 25%;
   }
-  .offset-clg-4 {
+  .offset-content-lg-4 {
     margin-left: 33.3333333333%;
   }
-  .offset-clg-5 {
+  .offset-content-lg-5 {
     margin-left: 41.6666666667%;
   }
-  .offset-clg-6 {
+  .offset-content-lg-6 {
     margin-left: 50%;
   }
-  .offset-clg-7 {
+  .offset-content-lg-7 {
     margin-left: 58.3333333333%;
   }
-  .offset-clg-8 {
+  .offset-content-lg-8 {
     margin-left: 66.6666666667%;
   }
-  .offset-clg-9 {
+  .offset-content-lg-9 {
     margin-left: 75%;
   }
-  .offset-clg-10 {
+  .offset-content-lg-10 {
     margin-left: 83.3333333333%;
   }
-  .offset-clg-11 {
+  .offset-content-lg-11 {
     margin-left: 91.6666666667%;
   }
 }
-@container (min-width: 1200px) {
-  .col-cxl-1 {
+@container (min-width: 1100px) {
+  .col-content-xl-1 {
     flex: 0 0 auto;
     width: 8.3333333333%;
   }
-  .col-cxl-2 {
+  .col-content-xl-2 {
     flex: 0 0 auto;
     width: 16.6666666667%;
   }
-  .col-cxl-3 {
+  .col-content-xl-3 {
     flex: 0 0 auto;
     width: 25%;
   }
-  .col-cxl-4 {
+  .col-content-xl-4 {
     flex: 0 0 auto;
     width: 33.3333333333%;
   }
-  .col-cxl-5 {
+  .col-content-xl-5 {
     flex: 0 0 auto;
     width: 41.6666666667%;
   }
-  .col-cxl-6 {
+  .col-content-xl-6 {
     flex: 0 0 auto;
     width: 50%;
   }
-  .col-cxl-7 {
+  .col-content-xl-7 {
     flex: 0 0 auto;
     width: 58.3333333333%;
   }
-  .col-cxl-8 {
+  .col-content-xl-8 {
     flex: 0 0 auto;
     width: 66.6666666667%;
   }
-  .col-cxl-9 {
+  .col-content-xl-9 {
     flex: 0 0 auto;
     width: 75%;
   }
-  .col-cxl-10 {
+  .col-content-xl-10 {
     flex: 0 0 auto;
     width: 83.3333333333%;
   }
-  .col-cxl-11 {
+  .col-content-xl-11 {
     flex: 0 0 auto;
     width: 91.6666666667%;
   }
-  .col-cxl-12 {
+  .col-content-xl-12 {
     flex: 0 0 auto;
     width: 100%;
   }
-  .col-cxl-auto {
+  .col-content-xl-auto {
     flex: 0 0 auto;
     width: auto;
   }
-  .offset-cxl-1 {
+  .offset-content-xl-1 {
     margin-left: 8.3333333333%;
   }
-  .offset-cxl-2 {
+  .offset-content-xl-2 {
     margin-left: 16.6666666667%;
   }
-  .offset-cxl-3 {
+  .offset-content-xl-3 {
     margin-left: 25%;
   }
-  .offset-cxl-4 {
+  .offset-content-xl-4 {
     margin-left: 33.3333333333%;
   }
-  .offset-cxl-5 {
+  .offset-content-xl-5 {
     margin-left: 41.6666666667%;
   }
-  .offset-cxl-6 {
+  .offset-content-xl-6 {
     margin-left: 50%;
   }
-  .offset-cxl-7 {
+  .offset-content-xl-7 {
     margin-left: 58.3333333333%;
   }
-  .offset-cxl-8 {
+  .offset-content-xl-8 {
     margin-left: 66.6666666667%;
   }
-  .offset-cxl-9 {
+  .offset-content-xl-9 {
     margin-left: 75%;
   }
-  .offset-cxl-10 {
+  .offset-content-xl-10 {
     margin-left: 83.3333333333%;
   }
-  .offset-cxl-11 {
+  .offset-content-xl-11 {
     margin-left: 91.6666666667%;
   }
 }
@@ -4646,8 +4646,13 @@
   padding: 3px 10px;
   display: block;
   font-size: 0.9em;
-  height: auto;
+  height: 2.2em;
+  box-sizing: border-box;
   width: 100%;
+}
+.edrpgsheet label .input, .edrpgitemsheet label .input {
+  display: flex;
+  align-items: center;
 }
 .edrpgsheet label .roll-button, .edrpgitemsheet label .roll-button {
   position: absolute;
@@ -4696,7 +4701,7 @@
   background: #78a0d1;
   color: white;
   font-weight: bold;
-  font-size: 0.7em;
+  font-size: 0.8em;
   text-transform: uppercase;
   border: solid 1px #ffffff;
 }
@@ -4713,7 +4718,7 @@
   background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(179, 197, 227) 100%);
   text-align: right;
   font-weight: bold;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 .edrpgsheet .tableitems .tablerow .tableheader a, .edrpgitemsheet .tableitems .tablerow .tableheader a {
   display: block;
@@ -4768,10 +4773,14 @@
   border-bottom: solid 1px #012533;
   font-weight: bold;
   background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(179, 197, 227) 100%);
+  display: flex;
+  flex-wrap: nowrap;
 }
 .edrpgsheet .sheet-tabs .item, .edrpgitemsheet .sheet-tabs .item {
   padding: 5px 10px;
-  width: 100%;
+  flex: 1 1 auto;
+  text-align: center;
+  white-space: nowrap;
 }
 .edrpgsheet .sheet-tabs .active, .edrpgitemsheet .sheet-tabs .active {
   background: #78a0d1;
@@ -4779,20 +4788,22 @@
   text-shadow: none;
 }
 
-.application.edrpg-v2 {
+.application.edrpg-v2 .window-content {
   font-family: "Saira Semi Condensed", sans-serif;
   color: #012533;
+  background: #ffffff;
+  overflow: hidden auto;
   --color-text-primary: #012533;
   --color-text-secondary: #012533;
   --color-form-label: #012533;
   --color-form-label-hover: #012533;
   --color-form-hint: #012533;
 }
-.application.edrpg-v2 h1, .application.edrpg-v2 h2, .application.edrpg-v2 h3, .application.edrpg-v2 h4 {
+.application.edrpg-v2 .window-content h1, .application.edrpg-v2 .window-content h2, .application.edrpg-v2 .window-content h3, .application.edrpg-v2 .window-content h4 {
   font-family: inherit;
   color: #012533;
-  font-size: 1.25rem;
-  font-weight: bold;
+  font-size: 1.7em;
+  font-weight: normal;
   line-height: 1.3;
   margin: 0.5em 0;
   padding-bottom: 2px;
@@ -4800,32 +4811,45 @@
   border-bottom: 1px solid #782e22;
   text-shadow: none;
 }
-.application.edrpg-v2 input, .application.edrpg-v2 textarea, .application.edrpg-v2 select, .application.edrpg-v2 button, .application.edrpg-v2 prose-mirror, .application.edrpg-v2 .editor-content {
+.application.edrpg-v2 .window-content input, .application.edrpg-v2 .window-content textarea, .application.edrpg-v2 .window-content select, .application.edrpg-v2 .window-content button, .application.edrpg-v2 .window-content prose-mirror, .application.edrpg-v2 .window-content .editor-content {
   font-family: inherit;
   color: #012533;
 }
-.application.edrpg-v2 input, .application.edrpg-v2 textarea, .application.edrpg-v2 select {
+.application.edrpg-v2 .window-content input, .application.edrpg-v2 .window-content textarea, .application.edrpg-v2 .window-content select {
   background: linear-gradient(90deg, rgb(187, 199, 221) 0%, rgb(255, 255, 255) 100%);
   border: solid 1px #012533;
   border-radius: 0;
 }
-.application.edrpg-v2 input::placeholder, .application.edrpg-v2 textarea::placeholder {
+.application.edrpg-v2 .window-content input::placeholder, .application.edrpg-v2 .window-content textarea::placeholder {
   color: #777777;
   opacity: 1;
 }
-.application.edrpg-v2 .editor-menu, .application.edrpg-v2 prose-mirror menu {
+.application.edrpg-v2 .window-content .editor-menu, .application.edrpg-v2 .window-content prose-mirror menu {
   background: #e0e0e0;
   color: #012533;
 }
-.application.edrpg-v2 .editor-menu button, .application.edrpg-v2 .editor-menu a, .application.edrpg-v2 .editor-menu i, .application.edrpg-v2 .editor-menu select, .application.edrpg-v2 .editor-menu label, .application.edrpg-v2 prose-mirror menu button, .application.edrpg-v2 prose-mirror menu a, .application.edrpg-v2 prose-mirror menu i, .application.edrpg-v2 prose-mirror menu select, .application.edrpg-v2 prose-mirror menu label {
+.application.edrpg-v2 .window-content .editor-menu button, .application.edrpg-v2 .window-content .editor-menu a, .application.edrpg-v2 .window-content .editor-menu i, .application.edrpg-v2 .window-content .editor-menu select, .application.edrpg-v2 .window-content .editor-menu label, .application.edrpg-v2 .window-content prose-mirror menu button, .application.edrpg-v2 .window-content prose-mirror menu a, .application.edrpg-v2 .window-content prose-mirror menu i, .application.edrpg-v2 .window-content prose-mirror menu select, .application.edrpg-v2 .window-content prose-mirror menu label {
   color: #012533;
 }
-.application.edrpg-v2 .window-content {
-  background: #ffffff;
-  color: #012533;
-}
-.application.edrpg-v2 .tab.active {
+.application.edrpg-v2 .window-content .tab.active {
   display: block;
+}
+.application.edrpg-v2 .window-content .tab-sections,
+.application.edrpg-v2 .window-content .tab-sections > .content {
+  height: auto;
+}
+.application.edrpg-v2 .window-content .tab-sections > .content > .tab.active {
+  min-height: 0;
+  overflow: visible;
+}
+
+.application.edrpg-v2 .edrpg-drop-dim {
+  opacity: 0.7;
+  transition: opacity 0.1s ease;
+}
+.application.edrpg-v2 .edrpg-drop-valid {
+  outline: 2px dashed #1caa1f;
+  outline-offset: -2px;
 }
 
 .difficultyNumbers {
@@ -5011,6 +5035,13 @@
   height: 4rem;
   overflow: hidden;
 }
+.ship-components .component .component-inner .weaponSlotSettings {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.4rem;
+  z-index: 2;
+  cursor: pointer;
+}
 .ship-components .component .component-inner .stats {
   clip-path: polygon(15% 0, 100% 0, 100% 0, 100% 100%, 0% 100%);
   position: absolute;
@@ -5032,6 +5063,16 @@
   font-size: 1.8em;
   background: #dddddd;
   color: #999999 !important;
+}
+
+.application.edrpg-v2 .window-content input.ship-power {
+  font-weight: bold;
+}
+.application.edrpg-v2 .window-content input.ship-power.positive {
+  color: #1caa1f;
+}
+.application.edrpg-v2 .window-content input.ship-power.negative {
+  color: #d63333;
 }
 
 .edrpgsheet i,

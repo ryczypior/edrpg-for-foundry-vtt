@@ -5,10 +5,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-content-md-6 col-content-lg-4">
       <span>{{localize 'ITEM.RangedWeapons.Type'}}</span>
     </div>
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-12 col-content-md-6 col-content-lg-8">
       {{#select system.rangedWeapons.type.value}}
       <select name="system.rangedWeapons.type.value">
         <option>--</option>
@@ -20,10 +20,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-content-md-6 col-content-lg-4">
       <span>{{localize 'ITEM.RangedWeapons.Damage'}}</span>
     </div>
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-12 col-content-md-6 col-content-lg-8">
       <input type="text" class="rangedWeaponDamage" value="{{system.rangedWeapons.damage.value}}"
              name="system.rangedWeapons.damage.value"
              placeholder="{{localize 'ITEM.RangedWeapons.Damage'}}"
@@ -115,20 +115,20 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-content-md-6 col-content-lg-4">
       <span>{{localize 'ITEM.RangedWeapons.Burst'}}</span>
     </div>
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-12 col-content-md-6 col-content-lg-8">
       <input type="number" value="{{system.rangedWeapons.burst.value}}" name="system.rangedWeapons.burst.value"
              placeholder="{{localize 'ITEM.RangedWeapons.Burst'}}"
              title="{{localize 'ITEM.RangedWeapons.Burst'}}">
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-content-md-6 col-content-lg-4">
       <span>{{localize 'ITEM.UsesAmmo'}}</span><br>
     </div>
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-12 col-content-md-6 col-content-lg-8">
       {{#select system.ammo.usesAmmo.value}}
       <select name="system.ammo.usesAmmo.value">
         <option>--</option>
@@ -140,20 +140,20 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-content-md-6 col-content-lg-4">
       <span>{{localize 'ITEM.MaxAmmoInClip'}}</span><br>
     </div>
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-12 col-content-md-6 col-content-lg-8">
       <input type="number" value="{{system.ammo.maxAmmoInClip.value}}" name="system.ammo.maxAmmoInClip.value"
              placeholder="{{localize 'ITEM.MaxAmmoInClip'}}"
              title="{{localize 'ITEM.MaxAmmoInClip'}}">
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-content-md-6 col-content-lg-4">
       <span>{{localize 'ITEM.RangedWeapons.DestroyCover'}}</span>
     </div>
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-12 col-content-md-6 col-content-lg-8">
       <input type="checkbox" class="destroyCover" value="1"
              {{#if system.rangedWeapons.destroyCover.value}}
              checked="checked"
@@ -162,10 +162,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-content-md-6 col-content-lg-4">
       <span>{{localize 'ITEM.RangedWeapons.DivideFire'}}</span>
     </div>
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-12 col-content-md-6 col-content-lg-8">
       <input type="checkbox" class="divideFire" value="1"
              {{#if system.rangedWeapons.divideFire.value}}
              checked="checked"
@@ -174,10 +174,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-content-md-6 col-content-lg-4">
       <span>{{localize 'ITEM.RangedWeapons.DirectFireExplosive'}}</span>
     </div>
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-12 col-content-md-6 col-content-lg-8">
       <input type="checkbox" class="directFireExplosive" value="1"
              {{#if system.rangedWeapons.directFireExplosive.value}}
              checked="checked"
@@ -186,10 +186,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-content-md-6 col-content-lg-4">
       <span>{{localize 'ITEM.RangedWeapons.IsTwoHanded'}}</span>
     </div>
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-12 col-content-md-6 col-content-lg-8">
       <input type="checkbox" class="isTwoHanded" value="1"
              {{#if system.rangedWeapons.isTwoHanded.value}}
              checked="checked"
@@ -198,50 +198,50 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-content-md-6 col-content-lg-4">
       <span>{{localize 'ITEM.RangedWeapons.BlastRadiusInjury'}} [m]</span><br>
     </div>
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-12 col-content-md-6 col-content-lg-8">
       <input type="number" value="{{system.rangedWeapons.blastRadiusInjury.value}}" name="system.rangedWeapons.blastRadiusInjury.value"
              placeholder="{{localize 'ITEM.RangedWeapons.BlastRadiusInjury'}}"
              title="{{localize 'ITEM.RangedWeapons.BlastRadiusInjury'}}">
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-content-md-6 col-content-lg-4">
       <span>{{localize 'ITEM.RangedWeapons.BlastRadiusFatal'}} [m]</span><br>
     </div>
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-12 col-content-md-6 col-content-lg-8">
       <input type="number" value="{{system.rangedWeapons.blastRadiusFatal.value}}" name="system.rangedWeapons.blastRadiusFatal.value"
              placeholder="{{localize 'ITEM.RangedWeapons.BlastRadiusFatal'}}"
              title="{{localize 'ITEM.RangedWeapons.BlastRadiusFatal'}}">
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-content-md-6 col-content-lg-4">
       <span>{{localize 'ITEM.RangedWeapons.DamageInjury'}}</span><br>
     </div>
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-12 col-content-md-6 col-content-lg-8">
       <input type="string" value="{{system.rangedWeapons.damageInjury.value}}" name="system.rangedWeapons.damageInjury.value"
              placeholder="{{localize 'ITEM.RangedWeapons.DamageInjury'}}"
              title="{{localize 'ITEM.RangedWeapons.DamageInjury'}}">
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-content-md-6 col-content-lg-4">
       <span>{{localize 'ITEM.RangedWeapons.DamageFatal'}}</span><br>
     </div>
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-12 col-content-md-6 col-content-lg-8">
       <input type="string" value="{{system.rangedWeapons.damageFatal.value}}" name="system.rangedWeapons.damageFatal.value"
              placeholder="{{localize 'ITEM.RangedWeapons.DamageFatal'}}"
              title="{{localize 'ITEM.RangedWeapons.DamageFatal'}}">
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-content-md-6 col-content-lg-4">
       <span>{{localize 'ITEM.RangedWeapons.MinimumSafeRange'}} [m]</span><br>
     </div>
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-12 col-content-md-6 col-content-lg-8">
       <input type="number" value="{{system.rangedWeapons.minimumSafeRange.value}}" name="system.rangedWeapons.minimumSafeRange.value"
              placeholder="{{localize 'ITEM.RangedWeapons.MinimumSafeRange'}}"
              title="{{localize 'ITEM.RangedWeapons.MinimumSafeRange'}}">

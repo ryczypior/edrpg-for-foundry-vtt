@@ -21,7 +21,7 @@
         {{localize "SHIPSHEET.ComponentActions"}}
     </div>
 </div>
-<div class="ship-components-fixed">
+<div class="ship-components-fixed" data-drop-types="Ship Bulkheads|Ship Power Plants|Ship Thrusters|Ship FSD|Ship Life Support|Ship Power Distributor|Ship Sensors|Ship Cargo Hatch">
     {{#each fixedComponents as |item i|}}
     <div class="row ship-bulkhead tablerow">
         <div class="col-7 tableheader text-left onChangeActiveDescription">
@@ -58,10 +58,10 @@
             {{/if}}
         </div>
         <div class="col-1 tableinput">
-            <input type="text">
+            <input type="text" class="changeFixedComponentModel" data-idx="{{i}}" value="{{item.model}}">
         </div>
         <div class="col-1 tableinput">
-            <span class="clickRemoveItem" data-id="{{item._id}}">
+            <span class="removeShipComponent" data-component-name="__fixed" data-idx="{{i}}">
                 <i class="fas fa-trash"></i>
             </span>
         </div>

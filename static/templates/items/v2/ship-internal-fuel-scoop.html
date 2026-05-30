@@ -1,0 +1,49 @@
+<section class="tab-sections">
+    <nav class="sheet-tabs tabs" ondragstart="return false;" ondrop="return false;">
+        <a class="item active" data-tab="main">{{localize "ITEM.Description"}}</a>
+    </nav>
+    <section class="content">
+        <div class="tab main save-scroll" data-tab="main">
+            {{> systems/edrpg/templates/items/partials/item-ship-component-size.html}}
+            {{> systems/edrpg/templates/items/partials/item-ship-power-consumed.html}}
+            {{> systems/edrpg/templates/items/partials/item-ship-strength.html}}
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12"><h2>{{localize "ITEM.ShipSafeScoopSkillCheck"}}</h2></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-content-md-6 col-content-lg-4">
+                        <span>{{localize 'ITEM.ShipSafeScoopSkillCheck'}}</span>
+                    </div>
+                    <div class="col-12 col-content-md-6 col-content-lg-8">
+                        <input type="number" value="{{system.safeScoopSkillCheck.value}}"
+                               name="system.safeScoopSkillCheck.value" min="0" max="20" step="1"
+                               title="{{localize 'ITEM.ShipScoopAutoHint'}}">
+                        <small>{{localize 'ITEM.ShipScoopAutoHint'}}</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12"><h2>{{localize "ITEM.ShipEmergencyScoopSkillCheck"}}</h2></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-content-md-6 col-content-lg-4">
+                        <span>{{localize 'ITEM.ShipEmergencyScoopSkillCheck'}}</span>
+                    </div>
+                    <div class="col-12 col-content-md-6 col-content-lg-8">
+                        <input type="number" value="{{system.emergencyScoopSkillCheck.value}}"
+                               name="system.emergencyScoopSkillCheck.value" min="0" max="20" step="1"
+                               title="{{localize 'ITEM.ShipScoopAutoHint'}}">
+                        <small>{{localize 'ITEM.ShipScoopAutoHint'}}</small>
+                    </div>
+                </div>
+            </div>
+
+            {{> systems/edrpg/templates/items/partials/item-all-description.html}}
+            {{> systems/edrpg/templates/items/partials/item-all-cost.html}}
+        </div>
+    </section>
+</section>

@@ -87,6 +87,11 @@
             "initial": 1,
             "value": 1
           },
+          "crew": {
+            "type": "Number",
+            "initial": 0,
+            "value": 0
+          },
           "fuel": {
             "type": "Number",
             "initial": 0,
@@ -153,49 +158,57 @@
             "size": 1,
             "strength": 0,
             "power": 0,
-            "item" : null
+            "item" : null,
+            "model": ""
           },
           "powerPlant": {
             "size": 1,
             "strength": 0,
             "power": 0,
-            "item" : null
+            "item" : null,
+            "model": ""
           },
           "thrusters": {
             "size": 1,
             "strength": 0,
             "power": 0,
-            "item" : null
+            "item" : null,
+            "model": ""
           },
           "fsd": {
             "size": 1,
             "strength": 0,
             "power": 0,
-            "item" : null
+            "item" : null,
+            "model": ""
           },
           "lifeSupport": {
             "size": 1,
             "strength": 0,
             "power": 0,
-            "item" : null
+            "item" : null,
+            "model": ""
           },
           "powerDistributor": {
             "size": 1,
             "strength": 0,
             "power": 0,
-            "item" : null
+            "item" : null,
+            "model": ""
           },
           "sensors": {
             "size": 1,
             "strength": 0,
             "power": 0,
-            "item" : null
+            "item" : null,
+            "model": ""
           },
           "cargoHatch": {
             "size": 1,
             "strength": 0,
             "power": 0,
-            "item" : null
+            "item" : null,
+            "model": ""
           }
         }
       },
@@ -394,6 +407,10 @@
       "Ship Internal - Module Reinforcement Packages",
       "Ship Internal - Prospector Limpet Controllers",
       "Ship Internal - Planetary Vehicle Hangars",
+      "Ship Internal - Planetary Scanners",
+      "Ship Internal - Fighter Hangar",
+      "Ship Internal - Spaceship Hangar",
+      "Ship Internal - Passenger Cabins",
       "Ship Internal - Refineries",
       "Ship Internal - Shield Cell Banks",
       "Ship Internal - Shield Generators",
@@ -1036,105 +1053,271 @@
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "strength": {
+        "value": 10
+      }
     },
     "Ship Internal - AFM Units": {
       "templates": [
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "strength": {
+        "value": 10
+      },
+      "maxRepair": {
+        "value": 0
+      },
+      "supply": {
+        "value": 0
+      }
     },
     "Ship Internal - Cargo Racks": {
       "templates": [
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "strength": {
+        "value": 10
+      },
+      "capacity": {
+        "value": 0
+      }
     },
     "Ship Internal - Collector Limpet Controllers": {
       "templates": [
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "strength": {
+        "value": 10
+      },
+      "miningValueBonus": {
+        "value": 0
+      },
+      "canistersPerRound": {
+        "value": 0
+      }
     },
     "Ship Internal - Docking Computer": {
       "templates": [
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "strength": {
+        "value": 10
+      }
     },
     "Ship Internal - FSD Interdictor": {
       "templates": [
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "strength": {
+        "value": 10
+      },
+      "spaceshipPilotingModifier": {
+        "value": 0
+      },
+      "sizeLimit": {
+        "value": ""
+      }
     },
     "Ship Internal - Fuel Scoops": {
       "templates": [
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "strength": {
+        "value": 10
+      },
+      "safeScoopSkillCheck": {
+        "value": 0
+      },
+      "emergencyScoopSkillCheck": {
+        "value": 0
+      }
     },
     "Ship Internal - Hatch Breaker Limpet Controllers": {
       "templates": [
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "strength": {
+        "value": 10
+      },
+      "accuracyBonus": {
+        "value": 1
+      },
+      "override": {
+        "value": 0
+      },
+      "overrideUnitsRoll": {
+        "value": ""
+      }
     },
     "Ship Internal - Hull Reinforcement Packages": {
       "templates": [
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "powerConsumed": {
+        "value": 0
+      },
+      "extraHullPoints": {
+        "value": 0
+      }
     },
     "Ship Internal - Module Reinforcement Packages": {
       "templates": [
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "powerConsumed": {
+        "value": 0
+      },
+      "extraStrengthPoints": {
+        "value": 0
+      },
+      "protectedGroup": {
+        "value": "all"
+      }
     },
     "Ship Internal - Prospector Limpet Controllers": {
       "templates": [
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "strength": {
+        "value": 10
+      },
+      "miningValueBonus": {
+        "value": 0
+      },
+      "maxActiveDrones": {
+        "value": 1
+      }
     },
     "Ship Internal - Planetary Vehicle Hangars": {
       "templates": [
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "strength": {
+        "value": 10
+      },
+      "vehicleBays": {
+        "value": 1
+      }
+    },
+    "Ship Internal - Planetary Scanners": {
+      "templates": [
+        "internalId",
+        "cost",
+        "details"
+      ],
+      "powerConsumed": {
+        "value": 0
+      },
+      "strength": {
+        "value": 10
+      }
+    },
+    "Ship Internal - Fighter Hangar": {
+      "templates": [
+        "internalId",
+        "cost",
+        "details"
+      ],
+      "strength": {
+        "value": 10
+      },
+      "fighterBays": {
+        "value": 1
+      }
+    },
+    "Ship Internal - Spaceship Hangar": {
+      "templates": [
+        "internalId",
+        "cost",
+        "details"
+      ],
+      "strength": {
+        "value": 10
+      },
+      "hangarSize": {
+        "value": ""
+      }
+    },
+    "Ship Internal - Passenger Cabins": {
+      "templates": [
+        "internalId",
+        "cost",
+        "details"
+      ],
+      "strength": {
+        "value": 10
+      },
+      "passengers": {
+        "value": 1
+      },
+      "cabinClass": {
+        "value": "economy"
+      }
     },
     "Ship Internal - Refineries": {
       "templates": [
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "strength": {
+        "value": 10
+      },
+      "miningValueBonus": {
+        "value": 0
+      }
     },
     "Ship Internal - Shield Cell Banks": {
       "templates": [
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "strength": {
+        "value": 10
+      },
+      "rechargePerRound": {
+        "value": 1
+      },
+      "duration": {
+        "value": 1
+      }
     },
     "Ship Internal - Shield Generators": {
       "templates": [
         "internalId",
         "cost",
         "details"
-      ]
+      ],
+      "strength": {
+        "value": 10
+      },
+      "shieldPower": {
+        "value": 1
+      }
     },
     "Vehicle Shields": {
       "templates": [

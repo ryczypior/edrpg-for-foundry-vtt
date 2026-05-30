@@ -1,9 +1,9 @@
     <header class="container-fluid" ondragstart="return false;" ondrop="return false;">
         <div class="row">
-            <div class="col-4 col-lg-2 characterImage">
+            <div class="col-4 col-content-lg-2 characterImage">
                 <img class="" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" data-action="editImage">
             </div>
-            <div class="col-6 col-lg-10">
+            <div class="col-6 col-content-lg-10">
                 <div class="row">
                     <div class="col-12">
                         <label class="nameField">
@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-content-lg-6">
                         <label>
                             <input
                                     type="number" value="{{system.shipInfo.defence.value}}"
@@ -26,7 +26,7 @@
                             </a>
                         </label>
                     </div>
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-content-lg-6">
                         <label>
                             <input
                                     type="number" value="{{system.shipInfo.initiative.value}}"
@@ -38,7 +38,7 @@
                             <span>{{localize "SHIPSHEET.Initiative"}}</span>
                         </label>
                     </div>
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-content-lg-6">
                         <label>
                             <input
                                     type="number" value="{{system.shipInfo.pursuit.value}}"
@@ -50,7 +50,7 @@
                             <span>{{localize "SHIPSHEET.Pursuit"}}</span>
                         </label>
                     </div>
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-content-lg-6">
                         <label>
                             <input
                                     type="number" value="{{system.shipInfo.dogfight.value}}"
@@ -60,6 +60,13 @@
                                 <i class="fa-solid fa-dice-d10"></i>
                             </a>
                             <span>{{localize "SHIPSHEET.Dogfight"}}</span>
+                        </label>
+                    </div>
+                    <div class="col-12 col-content-lg-6">
+                        <label>
+                            <input type="number" value="{{shipPower}}" readonly="readonly"
+                                   class="ship-power {{shipPowerClass}}">
+                            <span>{{localize "SHIPSHEET.Power"}}</span>
                         </label>
                     </div>
                 </div>

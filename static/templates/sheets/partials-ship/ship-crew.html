@@ -1,7 +1,72 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
+            <h2>{{localize "SHIPSHEET.PilotLabel"}}</h2>
+            <div class="pilot" data-drop-types="__actor">
+                {{#if pilot.name}}
+                <div class="pilot-entry">
+                    <div class="image">
+                        <img src="{{pilot.img}}" />
+                    </div>
+                    <div class="name">
+                        <strong>{{pilot.name}}</strong>
+                        <p>
+                            {{localize "SHIPSHEET.PilotDodgeBonus"}}: <strong>{{pilotDodge}}</strong>,
+                            {{localize "SHIPSHEET.PilotInitiativeBonus"}}: <strong>{{pilotInitiative}}</strong>,
+                            {{localize "SHIPSHEET.PilotSpaceShipPilotingBonus"}}: <strong>{{pilotSpaceshipPiloting}}</strong>
+                        </p>
+                    </div>
+                    <div class="actions">
+                        <a class="remove-pilot" title="{{localize 'SHIPSHEET.RemovePilot'}}"><i class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+                {{else}}
+                <div class="pilot-placeholder">
+                    <div class="image">
+                        <img src="icons/svg/mystery-man.svg" />
+                    </div>
+                    <div class="name">
+                        <strong>{{localize "SHIPSHEET.PilotPlaceholder"}}</strong>
+                    </div>
+                </div>
+                {{/if}}
+            </div>
         </div>
     </div>
-</div>
 
+    <div class="row">
+        <div class="col-12">
+            <h2>{{localize "SHIPSHEET.CrewLabel"}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        {{#each crewSlots as |member i|}}
+        <div class="col-12 col-content-lg-6">
+            <div class="pilot crew-slot" data-drop-types="__actor" data-idx="{{i}}">
+                {{#if member.name}}
+                <div class="pilot-entry">
+                    <div class="image">
+                        <img src="{{member.img}}" />
+                    </div>
+                    <div class="name">
+                        <strong>{{member.name}}</strong>
+                    </div>
+                    <div class="actions">
+                        <a class="remove-crew" data-idx="{{i}}" title="{{localize 'SHIPSHEET.RemoveCrew'}}"><i class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+                {{else}}
+                <div class="pilot-placeholder">
+                    <div class="image">
+                        <img src="icons/svg/mystery-man.svg" />
+                    </div>
+                    <div class="name">
+                        <strong>{{localize "SHIPSHEET.CrewPlaceholder"}}</strong>
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

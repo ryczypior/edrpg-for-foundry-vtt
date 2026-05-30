@@ -2,11 +2,8 @@
   {{localize "SHIPSHEET.UtilityMounts"}}
 </h2>
 <div class="row tableheading">
-  <div class="col-7">
+  <div class="col-8">
     {{localize "SHIPSHEET.ComponentName"}}
-  </div>
-  <div class="col-1">
-    {{localize "SHIPSHEET.ComponentSize"}}
   </div>
   <div class="col-1">
     {{localize "SHIPSHEET.ComponentStrength"}}
@@ -21,26 +18,15 @@
     {{localize "SHIPSHEET.ComponentActions"}}
   </div>
 </div>
-<div class="ship-components-utils">
+<div class="ship-components-utils" data-drop-types="Ship Utility Mounts">
   {{#each utilityMounts as |item i|}}
-  <div class="row tablerow">
-    <div class="col-7 tableheader text-left onChangeActiveDescription">
+  <div class="row tablerow component-slot" data-component-name="shipUtilityMounts" data-idx="{{i}}">
+    <div class="col-8 tableheader text-left onChangeActiveDescription">
       {{#if item.item}}
       {{item.item.name}}
       {{else}}
       {{localize "SHIPSHEET.None"}}
       {{/if}}
-    </div>
-    <div class="col-1 tableinput">
-      <select class="changeUtilityMountSize" data-idx="{{i}}" >
-        {{#each ../shipComponentClasses as |element x|}}
-        <option value="{{element}}"
-                {{#if (eq element item.size)}}
-                selected="selected"
-                {{/if}}
-        >{{element}}</option>
-        {{/each}}
-      </select>
     </div>
     <div class="col-1 tableinput">
       <span>{{item.item.system.strength.value}}</span>
@@ -57,10 +43,10 @@
       {{/if}}
     </div>
     <div class="col-1 tableinput">
-      <input type="text">
+      <input type="text" class="changeUtilityMountModel" data-idx="{{i}}" value="{{item.model}}">
     </div>
     <div class="col-1 tableinput">
-            <span class="clickRemoveItem" data-id="{{item._id}}">
+            <span class="removeShipComponent" data-component-name="shipUtilityMounts" data-idx="{{i}}">
                 <i class="fas fa-trash"></i>
             </span>
     </div>

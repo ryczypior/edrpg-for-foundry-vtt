@@ -1,0 +1,35 @@
+<section class="tab-sections">
+    <nav class="sheet-tabs tabs" ondragstart="return false;" ondrop="return false;">
+        <a class="item active" data-tab="main">{{localize "ITEM.Description"}}</a>
+    </nav>
+    <section class="content">
+        <div class="tab main save-scroll" data-tab="main">
+            {{> systems/edrpg/templates/items/partials/item-ship-component-size.html}}
+            {{> systems/edrpg/templates/items/partials/item-ship-power-consumed.html}}
+            {{> systems/edrpg/templates/items/partials/item-ship-strength.html}}
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12"><h2>{{localize "ITEM.ShipHangarSize"}}</h2></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-content-md-6 col-content-lg-4">
+                        <span>{{localize 'ITEM.ShipHangarSize'}}</span>
+                    </div>
+                    <div class="col-12 col-content-md-6 col-content-lg-8">
+                        <select name="system.hangarSize.value">
+                            {{#each landingPadSizes as |type id|}}
+                            <option value="{{id}}" {{#if (eq system.hangarSize.value id)}}selected="selected"{{/if}}>
+                                {{localize type.name}}
+                            </option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            {{> systems/edrpg/templates/items/partials/item-all-description.html}}
+            {{> systems/edrpg/templates/items/partials/item-all-cost.html}}
+        </div>
+    </section>
+</section>

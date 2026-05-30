@@ -1,36 +1,18 @@
 <h2>
   {{localize "SHIPSHEET.Weapons"}}
 </h2>
-<div class="row tableheading">
-  <div class="col-7">
-    {{localize "SHIPSHEET.ComponentName"}}
-  </div>
-  <div class="col-1">
-    {{localize "SHIPSHEET.ComponentSize"}}
-  </div>
-  <div class="col-1">
-    {{localize "SHIPSHEET.ComponentStrength"}}
-  </div>
-  <div class="col-1">
-    {{localize "SHIPSHEET.ComponentPower"}}
-  </div>
-  <div class="col-1">
-    {{localize "SHIPSHEET.ComponentSizeModel"}}
-  </div>
-  <div class="col-1">
-    {{localize "SHIPSHEET.ComponentActions"}}
-  </div>
-</div>
-
-<div class="ship-components row">
+<div class="ship-components row" data-drop-types="Ship Weapons">
   {{#each weapons as |item i|}}
-    <div class="col col-12 col-cmd-6 col-clg-4 col-cxl-3 component shipWeapons
+    <div class="col col-12 col-content-md-6 col-content-lg-4 col-content-xl-3 component shipWeapons
         {{#if item.item}}
         {{else}}
         empty
         {{/if}}
       " data-componentName="shipWeapons" data-idx="{{i}}">
       <div class="component-inner">
+        <span class="weaponSlotSettings" data-idx="{{i}}" title="{{localize 'SHIPSHEET.WeaponSlotMaxSize'}}">
+          <i class="fas fa-cog"></i>
+        </span>
         {{#if item.item}}
           {{item.item.name}}
         {{else}}
@@ -40,14 +22,14 @@
           {{#if item.item}}
           PWR: {{item.item.system.powerConsumed.value}};
           STR: {{item.item.system.strength.value}};
-          SIZE: {{item.size}};
+          SIZE: {{#with (lookup ../shipWeaponsSizes item.size) as |sz|}}{{localize sz.name}}{{/with}};
           {{else}}
           PWR: ---;
           STR: ---;
-          SIZE: {{item.size}};
+          SIZE: {{#with (lookup ../shipWeaponsSizes item.size) as |sz|}}{{localize sz.name}}{{/with}};
           {{/if}}
           {{#if item.item}}
-          <span class="clickRemoveItem" data-id="{{item._id}}">
+          <span class="removeShipComponent" data-component-name="shipWeapons" data-idx="{{i}}">
             <i class="fas fa-trash"></i>
           </span>
           {{/if}}

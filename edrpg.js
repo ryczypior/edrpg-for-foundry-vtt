@@ -49,6 +49,14 @@ import ItemSheetEDRPGShipInternalProspectorLimpetControllers
   from "./modules/item/sheet/ItemSheetEDRPGShipInternalProspectorLimpetControllers";
 import ItemSheetEDRPGShipInternalPlanetaryVehicleHangars
   from "./modules/item/sheet/ItemSheetEDRPGShipInternalPlanetaryVehicleHangars";
+import ItemSheetEDRPGShipInternalPlanetaryScanners
+  from "./modules/item/sheet/ItemSheetEDRPGShipInternalPlanetaryScanners";
+import ItemSheetEDRPGShipInternalFighterHangar
+  from "./modules/item/sheet/ItemSheetEDRPGShipInternalFighterHangar";
+import ItemSheetEDRPGShipInternalSpaceshipHangar
+  from "./modules/item/sheet/ItemSheetEDRPGShipInternalSpaceshipHangar";
+import ItemSheetEDRPGShipInternalPassengerCabins
+  from "./modules/item/sheet/ItemSheetEDRPGShipInternalPassengerCabins";
 import ItemSheetEDRPGShipInternalRefineries from "./modules/item/sheet/ItemSheetEDRPGShipInternalRefineries";
 import ItemSheetEDRPGShipInternalShieldCellBanks from "./modules/item/sheet/ItemSheetEDRPGShipInternalShieldCellBanks";
 import ItemSheetEDRPGShipInternalShieldGenerators
@@ -113,6 +121,10 @@ Hooks.once("init", async function () {
   ItemsCollection.registerSheet('edrpg', ItemSheetEDRPGShipInternalModuleReinforcementPackages, {types: ['Ship Internal - Module Reinforcement Packages'], makeDefault: true});
   ItemsCollection.registerSheet('edrpg', ItemSheetEDRPGShipInternalProspectorLimpetControllers, {types: ['Ship Internal - Prospector Limpet Controllers'], makeDefault: true});
   ItemsCollection.registerSheet('edrpg', ItemSheetEDRPGShipInternalPlanetaryVehicleHangars, {types: ['Ship Internal - Planetary Vehicle Hangars'], makeDefault: true});
+  ItemsCollection.registerSheet('edrpg', ItemSheetEDRPGShipInternalPlanetaryScanners, {types: ['Ship Internal - Planetary Scanners'], makeDefault: true});
+  ItemsCollection.registerSheet('edrpg', ItemSheetEDRPGShipInternalFighterHangar, {types: ['Ship Internal - Fighter Hangar'], makeDefault: true});
+  ItemsCollection.registerSheet('edrpg', ItemSheetEDRPGShipInternalSpaceshipHangar, {types: ['Ship Internal - Spaceship Hangar'], makeDefault: true});
+  ItemsCollection.registerSheet('edrpg', ItemSheetEDRPGShipInternalPassengerCabins, {types: ['Ship Internal - Passenger Cabins'], makeDefault: true});
   ItemsCollection.registerSheet('edrpg', ItemSheetEDRPGShipInternalRefineries, {types: ['Ship Internal - Refineries'], makeDefault: true});
   ItemsCollection.registerSheet('edrpg', ItemSheetEDRPGShipInternalShieldCellBanks, {types: ['Ship Internal - Shield Cell Banks'], makeDefault: true});
   ItemsCollection.registerSheet('edrpg', ItemSheetEDRPGShipInternalShieldGenerators, {types: ['Ship Internal - Shield Generators'], makeDefault: true});
@@ -163,6 +175,10 @@ Hooks.once("init", async function () {
       ItemSheetEDRPGShipInternalModuleReinforcementPackages,
       ItemSheetEDRPGShipInternalProspectorLimpetControllers,
       ItemSheetEDRPGShipInternalPlanetaryVehicleHangars,
+      ItemSheetEDRPGShipInternalPlanetaryScanners,
+      ItemSheetEDRPGShipInternalFighterHangar,
+      ItemSheetEDRPGShipInternalSpaceshipHangar,
+      ItemSheetEDRPGShipInternalPassengerCabins,
       ItemSheetEDRPGShipInternalRefineries,
       ItemSheetEDRPGShipInternalShieldCellBanks,
       ItemSheetEDRPGShipInternalShieldGenerators,
@@ -184,3 +200,4 @@ Hooks.once("init", async function () {
 });
 
 registerHooks();
+

@@ -1,7 +1,29 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 tableitems"
+             data-drop-types="Armour|Cybernetics|General Equipment|Ranged Weapons|Melee Weapons|Ammo Clips|Wearables|Commodities">
+            <div class="row tableheading">
+                <div class="col-5">{{localize "Name"}}</div>
+                <div class="col-3">{{localize "SHIPSHEET.ItemType"}}</div>
+                <div class="col-3">{{localize "SHIPSHEET.LastOwner"}}</div>
+                <div class="col-1">{{localize "SHIPSHEET.ComponentActions"}}</div>
+            </div>
+            {{#each shipEquipment as |item i|}}
+            <div class="row tablerow">
+                <div class="col-5 tableheader text-left">{{item.name}}</div>
+                <div class="col-3 tableinput"><span>{{item.type}}</span></div>
+                <div class="col-3 tableinput"><span>{{item.flags.edrpg.lastOwner}}</span></div>
+                <div class="col-1 tableinput">
+                    <span class="clickRemoveItem" data-id="{{item.id}}">
+                        <i class="fas fa-trash"></i>
+                    </span>
+                </div>
+            </div>
+            {{else}}
+            <div class="row tablerow">
+                <div class="col-12 text-left">{{localize "SHIPSHEET.EquipmentEmpty"}}</div>
+            </div>
+            {{/each}}
         </div>
     </div>
 </div>
-

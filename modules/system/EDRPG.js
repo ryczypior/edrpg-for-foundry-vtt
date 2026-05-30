@@ -761,6 +761,9 @@ EDRPG.shipTypes = {
   },
   large: {
     name: "SHIPSHEET.ShipTypeLarge",
+  },
+  huge: {
+    name: "SHIPSHEET.ShipTypeHuge",
   }
 }
 
@@ -773,6 +776,21 @@ EDRPG.landingPadSizes = {
   },
   large: {
     name: "SHIPSHEET.LandingPadSizeLarge",
+  }
+}
+
+EDRPG.passengerCabinClasses = {
+  economy: {
+    name: "ITEM.CabinClassEconomy",
+  },
+  business: {
+    name: "ITEM.CabinClassBusiness",
+  },
+  first: {
+    name: "ITEM.CabinClassFirst",
+  },
+  luxury: {
+    name: "ITEM.CabinClassLuxury",
   }
 }
 

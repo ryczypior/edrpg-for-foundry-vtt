@@ -54,6 +54,13 @@
       width: 100%;
       height: 4rem;
       overflow: hidden;
+      .weaponSlotSettings {
+        position: absolute;
+        top: 0.25rem;
+        right: 0.4rem;
+        z-index: 2;
+        cursor: pointer;
+      }
       .stats {
         clip-path: polygon(15% 0, 100% 0, 100% 0, 100% 100%, 0% 100%);
         position: absolute;
@@ -81,4 +88,12 @@
       }
     }
   }
+}
+
+// Derived ship power balance: green when positive, red when negative.
+// Specificity beats `.window-content input { color }`.
+.application.edrpg-v2 .window-content input.ship-power {
+  font-weight: bold;
+  &.positive { color: #1caa1f; }
+  &.negative { color: $red; }
 }

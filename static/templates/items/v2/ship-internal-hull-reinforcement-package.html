@@ -1,0 +1,29 @@
+<section class="tab-sections">
+    <nav class="sheet-tabs tabs" ondragstart="return false;" ondrop="return false;">
+        <a class="item active" data-tab="main">{{localize "ITEM.Description"}}</a>
+    </nav>
+    <section class="content">
+        <div class="tab main save-scroll" data-tab="main">
+            {{> systems/edrpg/templates/items/partials/item-ship-component-size.html}}
+            {{> systems/edrpg/templates/items/partials/item-ship-power-consumed.html}}
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12"><h2>{{localize "ITEM.ShipExtraHullPoints"}}</h2></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-content-md-6 col-content-lg-4">
+                        <span>{{localize 'ITEM.ShipExtraHullPoints'}}</span>
+                    </div>
+                    <div class="col-12 col-content-md-6 col-content-lg-8">
+                        <input type="number" value="{{system.extraHullPoints.value}}" name="system.extraHullPoints.value" min="1" step="1"
+                               placeholder="{{localize 'ITEM.ShipExtraHullPoints'}}" title="{{localize 'ITEM.ShipExtraHullPoints'}}">
+                    </div>
+                </div>
+            </div>
+
+            {{> systems/edrpg/templates/items/partials/item-all-description.html}}
+            {{> systems/edrpg/templates/items/partials/item-all-cost.html}}
+        </div>
+    </section>
+</section>

@@ -1,0 +1,45 @@
+<section class="tab-sections">
+    <nav class="sheet-tabs tabs" ondragstart="return false;" ondrop="return false;">
+        <a class="item active" data-tab="main">{{localize "ITEM.Description"}}</a>
+    </nav>
+    <section class="content">
+        <div class="tab main save-scroll" data-tab="main">
+            {{> systems/edrpg/templates/items/partials/item-all-cost.html}}
+            {{> systems/edrpg/templates/items/partials/item-ship-strength.html}}
+            {{> systems/edrpg/templates/items/partials/item-ship-power-consumed.html}}
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12"><h2>{{localize "SHIPSHEET.Ammo"}}</h2></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-content-md-6 col-content-lg-4">
+                        <span>{{localize 'SHIPSHEET.Ammo'}}</span>
+                    </div>
+                    <div class="col-12 col-content-md-6 col-content-lg-8">
+                        <input type="number" value="{{system.ammo.value}}" name="system.ammo.value" min="0" step="1"
+                               placeholder="{{localize 'SHIPSHEET.Ammo'}}" title="{{localize 'SHIPSHEET.Ammo'}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12"><h2>{{localize "ITEM.ShieldScoreBonus"}}</h2></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-content-md-6 col-content-lg-4">
+                        <span>{{localize 'ITEM.ShieldScoreBonus'}}</span>
+                    </div>
+                    <div class="col-12 col-content-md-6 col-content-lg-8">
+                        <input type="number" value="{{system.shieldScoreBonus.value}}" name="system.shieldScoreBonus.value"
+                               min="0" max="100" step="1"
+                               placeholder="{{localize 'ITEM.ShieldScoreBonus'}}" title="{{localize 'ITEM.ShieldScoreBonus'}}">
+                    </div>
+                </div>
+            </div>
+
+            {{> systems/edrpg/templates/items/partials/item-all-description.html}}
+        </div>
+    </section>
+</section>

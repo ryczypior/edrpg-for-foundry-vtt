@@ -6,10 +6,10 @@
   </div>
 
   <div class="row">
-    <div class="col-12 col-cmd-4 col-clg-4">
+    <div class="col-12 col-content-md-4 col-content-lg-4">
       <span>{{localize 'SHIPSHEET.WeaponAccuracy'}}</span>
     </div>
-    <div class="col-12 col-cmd-4 col-clg-4">
+    <div class="col-12 col-content-md-4 col-content-lg-4">
       {{#select system.accuracy.type}}
       <select name="system.accuracy.type">
         <option value="0">{{localize 'SHIPSHEET.WeaponAccuracyTypeFixed'}}</option>
@@ -17,7 +17,7 @@
       </select>
       {{/select}}
     </div>
-    <div class="col-12 col-cmd-4 col-clg-4 mb-2">
+    <div class="col-12 col-content-md-4 col-content-lg-4 mb-2">
       <input type="number" name="system.accuracy.value" value="{{system.accuracy.value}}">
     </div>
   </div>
