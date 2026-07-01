@@ -99,8 +99,8 @@ export default class ActorSheetEDRPGShip extends ActorSheetEDRPGV2 {
     context.landingPadSizes = EDRPG.landingPadSizes;
     if (context.pilot) {
       // Be resilient to pilots whose data lacks these fields (old/imported actors).
-      context.pilotDodge = context.pilot.system?.info?.dodge?.value ?? 0;
-      context.pilotInitiative = context.pilot.system?.info?.initiative?.value ?? 0;
+      context.pilotDodge = context.pilot.system?.status?.dodge?.value ?? 0;
+      context.pilotInitiative = context.pilot.system?.status?.initiative?.value ?? 0;
       const spaceshipPiloting = this.actor.findSkillByInternalId('Spaceship Piloting', context.pilot);
       if (spaceshipPiloting) {
         context.pilotSpaceshipPiloting = spaceshipPiloting.system?.skill?.skillBonus?.value ?? 0;
@@ -235,7 +235,7 @@ export default class ActorSheetEDRPGShip extends ActorSheetEDRPGV2 {
           data['system.shipInfo.defence.value'] += bonus;
           data['system.shipInfo.pursuit.value'] += Math.floor(bonus / 2);
         }
-        data['system.shipInfo.initiative.value'] += Number(this.actor.system.pilot.system?.info?.initiative?.value ?? 0);
+        data['system.shipInfo.initiative.value'] += Number(this.actor.system.pilot.system?.status?.initiative?.value ?? 0);
       }
       data['system.shipInfo.defence.value'] += Number(this.actor.system.shipInfo?.agility?.value ?? 0);
       data['system.shipInfo.pursuit.value'] += Number(this.actor.system.shipInfo?.speed?.value ?? 0);

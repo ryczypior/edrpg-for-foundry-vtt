@@ -42,6 +42,22 @@ export default class ActorEDRPG extends Actor {
     return null;
   }
 
+  /**
+   * Expose extra roll data for the Combat Tracker initiative formula.
+   * Initiative is rolled as 1d10 + the Tactics skill bonus (a decimal/tens value),
+   * with no difficulty level. The bonus is read live from the Tactics skill and
+   * falls back to the stored value, defaulting to 0 for actors without that skill.
+   */
+  getRollData() {
+    const data = super.getRollData() ?? {};
+    const tactics = this.findSkillByInternalId('tactics');
+    const bonus = tactics
+      ? Number(tactics.system?.skill?.skillBonus?.value)
+      : Number(this.system?.status?.initiative?.value);
+    data.initiativeBonus = Number.isFinite(bonus) ? bonus : 0;
+    return data;
+  }
+
 
   async updateMainAttributes() {
     const dodge = this.findSkillByInternalId('dodge');
@@ -49,13 +65,13 @@ export default class ActorEDRPG extends Actor {
     const parry = this.findSkillByInternalId('parry');
     const updateAttributes = {};
     if (dodge) {
-      updateAttributes['system.info.dodge.value'] = dodge.system.skill.skillBonus.value;
+      updateAttributes['system.status.dodge.value'] = dodge.system.skill.skillBonus.value;
     }
     if (parry) {
-      updateAttributes['system.info.parry.value'] = parry.system.skill.skillBonus.value;
+      updateAttributes['system.status.parry.value'] = parry.system.skill.skillBonus.value;
     }
     if (initiative) {
-      updateAttributes['system.info.initiative.value'] = initiative.system.skill.skillBonus.value;
+      updateAttributes['system.status.initiative.value'] = initiative.system.skill.skillBonus.value;
     }
     return await this.update(updateAttributes);
   }

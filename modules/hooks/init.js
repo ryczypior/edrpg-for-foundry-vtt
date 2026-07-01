@@ -6,6 +6,16 @@ export default function () {
    */
   Hooks.once("init", () => {
 
+    /**
+     * Combat initiative: 1d10 + Tactics bonus, rolled without a difficulty level.
+     * Combatants are then sorted by result descending (Foundry default), so the
+     * highest rolls sit at the top of the Combat Encounters tab.
+     */
+    CONFIG.Combat.initiative = {
+      formula: "1d10 + @initiativeBonus",
+      decimals: 2
+    };
+
     loadTemplates([
       "systems/edrpg/templates/sheets/character-sheet.html",
       "systems/edrpg/templates/sheets/creature-sheet.html",

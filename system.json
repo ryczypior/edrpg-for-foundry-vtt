@@ -41,7 +41,7 @@
             "url": "https://github.com/ryczypior/edrpg-for-foundry-vtt/blob/main/static/images/cover.jpg?raw=true"
         }
     ],
-    "initiative": "1d10 + @skills.intelligence.skills.tactics.bonus",
+    "initiative": "1d10 + @initiativeBonus",
     "background" : "systems/edrpg/images/edrpg-header.jpg",
     "gridDistance": 10,
     "gridUnits": "m",
